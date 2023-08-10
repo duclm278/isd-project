@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.controllers;
+package org.openjfx.hellofx.models.bike2;
 
 import org.bson.Document;
 import org.openjfx.hellofx.db.DatabaseConnector;
