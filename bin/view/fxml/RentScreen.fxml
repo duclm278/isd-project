@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ListView fx:id="bike_info" editable="true" layoutX="38.0" layoutY="71.0" prefHeight="147.0" prefWidth="232.0" />
+      <ListView fx:id="rent_rule" editable="true" layoutX="329.0" layoutY="71.0" prefHeight="147.0" prefWidth="232.0" />
+      <Label layoutX="329.0" layoutY="236.0" text="Deposit:" />
+      <Label fx:id="deposit_amount" layoutX="386.0" layoutY="236.0" text="Deposit:" />
+      <Label layoutX="45.0" layoutY="47.0" text="Bike detail information" />
+      <Label layoutX="341.0" layoutY="47.0" text="Payment formula" />
+      <Button fx:id="pay_now" layoutX="329.0" layoutY="278.0" mnemonicParsing="false" text="Pay now" />
+   </children>
+</AnchorPane>
