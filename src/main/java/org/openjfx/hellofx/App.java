@@ -1,12 +1,14 @@
 package org.openjfx.hellofx;
 
+import java.io.IOException;
+
+import org.openjfx.hellofx.models.movie.MovieService;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 /**
  * JavaFX App
@@ -33,7 +35,12 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        // launch();
+
+        // DEMO
+        MovieService movieService = new MovieService();
+        System.out.println("All movies:");
+        movieService.find().forEach(movie -> System.out.println(movie + "\n"));
     }
 
 }
