@@ -2,8 +2,6 @@ package org.openjfx.hellofx;
 
 import java.io.IOException;
 
-import org.openjfx.hellofx.models.bike.Bike;
-import org.openjfx.hellofx.models.bike.BikeService;
 import org.openjfx.hellofx.screens.home.HomeScreen;
 import org.openjfx.hellofx.utils.Configs;
 
@@ -33,7 +31,8 @@ public class App extends Application {
         // launch(args);
 
         // DEMO
-        TestBike.run();
+        // TestBike.run();
+        TestDock.run();
     }
 
 }
