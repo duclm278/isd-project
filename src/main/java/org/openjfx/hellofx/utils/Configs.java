@@ -1,7 +1,7 @@
 package org.openjfx.hellofx.utils;
 
 public class Configs {
-    public static final String MONGO_URI = "mongodb://localhost:27017";
+    public static final String MONGO_URI = "mongodb+srv://admin:admin@cluster0.rni4rdu.mongodb.net/";
     public static final String MONGO_DATABASE = "test";
 
     public static final String HOME_PATH = "HomeScreen.fxml";
