@@ -17,28 +17,27 @@ import org.openjfx.hellofx.screens.rent.RentScreen;
 import org.openjfx.hellofx.screens.waitingroom.WaitingRoomScreen;
 import org.openjfx.hellofx.utils.Configs;
 
+
 public class PaymentScreen extends ScreensStateHandler implements Initializable {
     Stage stage;
 
     @FXML
-    private Button start_rent;
+    private Button confirm_cardInfo;
     @FXML
     private ImageView home_btn;
 
     public PaymentScreen(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
-        // int bike_type = ((HashMap<String, Object>)
-        // this.state.get("bike_details")).get("type");
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        start_rent.setOnMouseClicked(event -> {
-            WaitingRoomScreen wait_screen;
+        confirm_cardInfo.setOnMouseClicked(event -> {
+            ConfirmPaymentScreen confirm_payment_screen;
             try {
-                wait_screen = new WaitingRoomScreen(this.stage, Configs.FOURTH_PATH);
-                wait_screen.show();
+                confirm_payment_screen = new ConfirmPaymentScreen(this.stage, Configs.FIFTH_PATH);
+                confirm_payment_screen.show();
 
             } catch (IOException e) {
                 e.printStackTrace();
