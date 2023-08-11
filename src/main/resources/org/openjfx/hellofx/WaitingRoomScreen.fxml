@@ -1,39 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.SubScene?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fx:id="timer" layoutX="61.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+      <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="600.0" style="-fx-border-color: black;">
+         <children>
+            <Button fx:id="hiden_btn" layoutX="26.0" layoutY="283.0" mnemonicParsing="false" text="Hide subscene" />
+            <Button fx:id="pause_timer" layoutX="239.0" layoutY="132.0" mnemonicParsing="false" text="Lock the bicycle" />
+            <Text fx:id="total_pay" layoutX="168.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 đ" textAlignment="CENTER" wrappingWidth="222.41336059570312">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Text>
+            <Pane layoutX="128.0" layoutY="37.0" prefHeight="82.0" prefWidth="321.0" style="-fx-background-color: black;">
+               <children>
+                  <Text fx:id="timer" fill="WHITE" layoutX="40.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="241.1428571428571">
+                     <font>
+                        <Font size="38.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="brand_img" fitHeight="35.0" fitWidth="52.0" layoutX="30.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="E:/newITSSprj/isd-project/src/main/resources/org/openjfx/hellofx/image/brand_img.png" />
+         </image>
+      </ImageView>
+      <Text fill="#479be4" layoutX="74.0" layoutY="36.0" stroke="#479be4" strokeType="OUTSIDE" strokeWidth="0.0" text="EcoBike">
          <font>
-            <Font size="38.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Text fx:id="total_pay" layoutX="300.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 đ">
-         <font>
-            <Font size="38.0" />
-         </font>
-      </Text>
-      <Button fx:id="pause_timer" layoutX="268.0" layoutY="225.0" mnemonicParsing="false" text="Pause" />
-      <Button fx:id="hiden_btn" layoutX="61.0" layoutY="238.0" mnemonicParsing="false" text="Hide subscene" />
-      
-      <SubScene fx:id="subscence_test" height="200.0" layoutX="37.0" layoutY="14.0" visible="false" width="509.0"  >
-        <root>
-          <VBox fx:id="vbox_test" layoutX="339.0" layoutY="25.0" prefHeight="349.0" prefWidth="232.0" visible="true">
-            <children>
-            <ListView fx:id="list_view_bike_details" prefHeight="251.0" prefWidth="232.0" />
-            <Button fx:id="back_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Back" />
-            </children>
-         </VBox>
-        </root>
-      </SubScene>
+      <AnchorPane fx:id="subscence_test" layoutX="101.0" layoutY="87.0" prefHeight="225.0" prefWidth="397.0" style="-fx-background-color: blue;" visible="false">
+         <children>
+            <ListView layoutX="89.0" layoutY="13.0" prefHeight="200.0" prefWidth="200.0" />
+            <Button fx:id="back_btn" layoutX="322.0" layoutY="186.0" mnemonicParsing="false" text="OK" />
+         </children>
+      </AnchorPane>
 
       
    </children>

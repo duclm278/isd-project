@@ -2,9 +2,10 @@ package org.openjfx.hellofx;
 
 import java.io.IOException;
 
+import org.openjfx.hellofx.controllers.screen.barcode.BarCodeController;
+import org.openjfx.hellofx.controllers.screen.home.HomeController;
 import org.openjfx.hellofx.models.movie.MovieService;
 import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.views.screen.barcode.BarCodeScreen;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
@@ -20,8 +21,8 @@ public class App extends Application {
 
         Parent root;
         try {
-            BarCodeScreen homeHandler = new BarCodeScreen(primaryStage, Configs.FIRST_PATH);
-            homeHandler.show();
+            HomeController home = new HomeController(primaryStage, Configs.HOME_PATH);
+            home.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
