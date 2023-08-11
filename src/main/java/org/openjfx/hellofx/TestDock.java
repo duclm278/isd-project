@@ -3,12 +3,24 @@ package org.openjfx.hellofx;
 import org.openjfx.hellofx.models.dock.Dock;
 import org.openjfx.hellofx.models.dock.DockService;
 
+import com.mongodb.client.model.Filters;
+
 public class TestDock {
     public static void run() {
         // Dock: find
         DockService dockService = new DockService();
         System.out.println("All docks:");
         dockService.find().forEach(dock -> System.out.println(dock + "\n"));
+
+        // Dock: findByFilters
+        String query = "Road";
+        System.out.println("Docks having name or address containing \"" + query + "\" (case insensitive):");
+        dockService
+                .find(
+                        Filters.or(
+                                Filters.regex("name", query, "i"),
+                                Filters.regex("address", query, "i")))
+                .forEach(dock -> System.out.println(dock + "\n"));
 
         // Dock: findById
         System.out.println("Dock with id " + dockService.find().get(0).getId() + ":");
