@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane layoutX="-6.0" layoutY="66.0" prefHeight="334.0" prefWidth="607.0" style="-fx-border-color: black;" />
+      <AnchorPane layoutX="-6.0" layoutY="66.0" prefHeight="334.0" prefWidth="607.0" style="-fx-border-color: black;">
+         <children>
+            <ListView fx:id="list_view2" layoutX="33.0" layoutY="14.0" prefHeight="82.0" prefWidth="200.0" />
+            <ListView fx:id="list_view3" layoutX="329.0" layoutY="14.0" prefHeight="82.0" prefWidth="200.0" />
+            <ScrollPane fx:id="scroll_pane2" layoutX="21.0" layoutY="109.0" prefHeight="214.0" prefWidth="569.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+         </children></AnchorPane>
       <ImageView fx:id="home_btn" fitHeight="41.0" fitWidth="44.0" layoutX="510.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/home_img.png" />

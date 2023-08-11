@@ -1,6 +1,7 @@
 package org.openjfx.hellofx;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.openjfx.hellofx.models.bike.Bike;
 import org.openjfx.hellofx.models.bike.BikeService;
@@ -25,7 +26,8 @@ public class TestBike {
 
         // Bike: save
         System.out.println("Saving new bike:");
-        Bike newBike = new Bike(null, "11111111", "test", null, null, 0.0, null, null);
+        Bike newBike = new Bike(null, "11111111", "test", Optional.ofNullable(null), Optional.ofNullable(null), 0,
+                Optional.ofNullable(null), Optional.ofNullable(null));
         newBike = bikeService.save(newBike);
         System.out.println(newBike + "\n");
 
@@ -36,7 +38,8 @@ public class TestBike {
 
         // Bike: findByIdAndReplace
         System.out.println("Replacing bike with id " + bikes.get(0).getId() + ":");
-        Bike updatedBike = new Bike(null, "00000001", "test", null, null, 0.0, null, null);
+        Bike updatedBike = new Bike(bikes.get(0).getId(), "11111111", "test", Optional.ofNullable(null),
+                Optional.ofNullable(null), 0, Optional.ofNullable(null), Optional.ofNullable(null));
         updatedBike = bikeService.findByIdAndReplace(bikes.get(0).getId(), updatedBike);
         System.out.println(updatedBike + "\n");
 

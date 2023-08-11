@@ -17,7 +17,7 @@ public class Bike {
     private String type;
     private Optional<Integer> battery;
     private Optional<Integer> timeLeft;
-    private double value;
+    private int value;
     private Optional<Double> lat;
     private Optional<Double> lon;
 }

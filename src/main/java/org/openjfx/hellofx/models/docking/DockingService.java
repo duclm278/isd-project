@@ -25,8 +25,6 @@ public class DockingService extends BaseService<Docking> {
 
     @Override
     public Docking save(Docking object) {
-        DockService dockService = new DockService();
-
         // Check if bike is already docked
         Docking docking = findByBikeId(object.getBikeId());
         if (docking != null) {
@@ -34,6 +32,7 @@ public class DockingService extends BaseService<Docking> {
         }
 
         // Try to dock bike
+        DockService dockService = new DockService();
         Dock dock = dockService.findByIdAndIncrementNumBikes(object.getDockId());
         if (dock == null) {
             return null;
@@ -43,11 +42,13 @@ public class DockingService extends BaseService<Docking> {
     }
 
     public Docking findByBikeIdAndDelete(ObjectId bikeId) {
+        // Check if bike is already docked
         Docking docking = findByBikeId(bikeId);
         if (docking == null) {
             return null;
         }
 
+        // Try to undock bike
         DockService dockService = new DockService();
         Dock dock = dockService.findByIdAndDecrementNumBikes(docking.getDockId());
         if (dock == null) {

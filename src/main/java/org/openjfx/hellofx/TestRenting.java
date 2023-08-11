@@ -3,8 +3,6 @@ package org.openjfx.hellofx;
 import java.util.List;
 import java.util.Random;
 
-import org.openjfx.hellofx.models.bike.Bike;
-import org.openjfx.hellofx.models.bike.BikeService;
 import org.openjfx.hellofx.models.dock.Dock;
 import org.openjfx.hellofx.models.dock.DockService;
 import org.openjfx.hellofx.models.docking.Docking;
