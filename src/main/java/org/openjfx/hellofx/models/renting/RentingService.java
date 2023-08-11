@@ -23,6 +23,10 @@ public class RentingService extends BaseService<Renting> {
         return rentings.size() > 0 ? rentings.get(0) : null;
     }
 
+    public Renting findByBikeId(String bikeId) {
+        return findByBikeId(new ObjectId(bikeId));
+    }
+
     public Renting rentBike(ObjectId bikeId) {
         DockingService dockingService = new DockingService();
         Docking docking = dockingService.findByBikeIdAndDelete(bikeId);
@@ -32,6 +36,10 @@ public class RentingService extends BaseService<Renting> {
 
         Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(), null);
         return save(renting);
+    }
+
+    public Renting rentBike(String bikeId) {
+        return rentBike(new ObjectId(bikeId));
     }
 
     public Renting returnBike(ObjectId bikeId, ObjectId dockId) {
@@ -65,5 +73,9 @@ public class RentingService extends BaseService<Renting> {
         }
 
         return result;
+    }
+
+    public Renting returnBike(String bikeId, String dockId) {
+        return returnBike(new ObjectId(bikeId), new ObjectId(dockId));
     }
 }
