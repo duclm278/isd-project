@@ -32,7 +32,9 @@ public class App extends Application {
 
         // DEMO
         // TestBike.run();
-        TestDock.run();
+        // TestDock.run();
+        TestDocking.run();
+        // TestRenting.run();
     }
 
 }
