@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Bike {
     private ObjectId id;
+    private String barcode;
     private String type;
     private int battery;
     private int timeLeft;

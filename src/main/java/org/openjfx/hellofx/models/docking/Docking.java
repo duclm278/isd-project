@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.models.bikedock;
+package org.openjfx.hellofx.models.docking;
 
 import org.bson.types.ObjectId;
 
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BikeDock {
+public class Docking {
     private ObjectId bikeId;
     private ObjectId dockId;
 }
