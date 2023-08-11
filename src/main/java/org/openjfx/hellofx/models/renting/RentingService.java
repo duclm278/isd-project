@@ -3,6 +3,7 @@ package org.openjfx.hellofx.models.renting;
 import static com.mongodb.client.model.Filters.eq;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.openjfx.hellofx.models.common.BaseService;
@@ -18,7 +19,8 @@ public class RentingService extends BaseService<Renting> {
     }
 
     public Renting findByBikeId(ObjectId bikeId) {
-        return find(eq("bikeId", bikeId)).get(0);
+        List<Renting> rentings = find(eq("bikeId", bikeId));
+        return rentings.size() > 0 ? rentings.get(0) : null;
     }
 
     public Renting rentBike(ObjectId bikeId) {

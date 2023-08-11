@@ -29,7 +29,7 @@ public class TestDock {
 
         // Dock: save
         System.out.println("Saving new dock:");
-        Dock newDock = new Dock(null, "test", "test", 0, 0.0, 0.0);
+        Dock newDock = new Dock(null, "test", "test", 0, 0, 0.0, 0.0);
         newDock = dockService.save(newDock);
         System.out.println(newDock + "\n");
 
@@ -40,7 +40,7 @@ public class TestDock {
 
         // Dock: findByIdAndReplace
         System.out.println("Replacing dock with id " + dockService.find().get(0).getId() + ":");
-        Dock updatedDock = new Dock(null, "test", "test", 0, 0.0, 0.0);
+        Dock updatedDock = new Dock(null, "test", "test", 0, 0, 0.0, 0.0);
         updatedDock = dockService.findByIdAndReplace(dockService.find().get(0).getId(), updatedDock);
         System.out.println(updatedDock + "\n");
 

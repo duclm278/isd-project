@@ -14,6 +14,7 @@ public class Dock {
     private String name;
     private String address;
     private int capacity;
+    private int numBikes;
     private double lat;
     private double lon;
 }
