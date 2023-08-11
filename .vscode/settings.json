@@ -2,5 +2,13 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   // "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
   "java.maven.downloadSources": true,
-  "cSpell.words": ["bson", "dockings", "hellofx", "imdb", "openjfx", "rentings"]
+  "cSpell.words": [
+    "bson",
+    "dockings",
+    "hellofx",
+    "imdb",
+    "openjfx",
+    "rawtypes",
+    "rentings"
+  ]
 }

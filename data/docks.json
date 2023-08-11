@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Dock A",
+    "address": "123 Dock Street",
+    "capacity": 10,
+    "lat": 37.123456,
+    "lon": -122.654321
+  },
+  {
+    "name": "Dock B",
+    "address": "456 Harbor Avenue",
+    "capacity": 15,
+    "lat": 38.987654,
+    "lon": -121.123456
+  },
+  {
+    "name": "Dock C",
+    "address": "789 Marina Road",
+    "capacity": 8,
+    "lat": 39.654321,
+    "lon": -120.987654
+  },
+  {
+    "name": "Dock D",
+    "address": "567 Pier Lane",
+    "capacity": 12,
+    "lat": 36.54321,
+    "lon": -123.456789
+  },
+  {
+    "name": "Dock E",
+    "address": "890 Port Boulevard",
+    "capacity": 20,
+    "lat": 40.135792,
+    "lon": -124.789012
+  },
+  {
+    "name": "Dock F",
+    "address": "234 Wharf Street",
+    "capacity": 7,
+    "lat": 35.97531,
+    "lon": -125.987654
+  },
+  {
+    "name": "Dock G",
+    "address": "678 Marina Drive",
+    "capacity": 9,
+    "lat": 41.246802,
+    "lon": -126.54321
+  },
+  {
+    "name": "Dock H",
+    "address": "1234 Harbor Road",
+    "capacity": 18,
+    "lat": 39.864209,
+    "lon": -127.345678
+  },
+  {
+    "name": "Dock I",
+    "address": "5678 Pier Avenue",
+    "capacity": 14,
+    "lat": 37.098765,
+    "lon": -128.678901
+  },
+  {
+    "name": "Dock J",
+    "address": "901 Port Lane",
+    "capacity": 11,
+    "lat": 42.345678,
+    "lon": -129.012345
+  }
+]

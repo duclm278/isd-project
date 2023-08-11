@@ -1,9 +1,10 @@
 package org.openjfx.hellofx;
 
 import java.io.IOException;
+import java.util.List;
 
-import org.openjfx.hellofx.models.movie.MovieService;
-import org.openjfx.hellofx.screens.barcode.BarCodeScreen;
+import org.openjfx.hellofx.models.bike.Bike;
+import org.openjfx.hellofx.models.bike.BikeService;
 import org.openjfx.hellofx.screens.home.HomeScreen;
 import org.openjfx.hellofx.utils.Configs;
 
@@ -30,12 +31,12 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        // launch(args);
 
-        // DEMO
-        MovieService movieService = new MovieService();
-        System.out.println("All movies:");
-        movieService.find().forEach(movie -> System.out.println(movie + "\n"));
+        // Bike: getAll
+        BikeService bikeService = new BikeService();
+        System.out.println("All bikes:");
+        bikeService.find().forEach(bike -> System.out.println(bike + "\n"));
     }
 
 }

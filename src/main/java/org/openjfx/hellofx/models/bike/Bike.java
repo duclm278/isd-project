@@ -1,5 +1,7 @@
 package org.openjfx.hellofx.models.bike;
 
+import java.util.Optional;
+
 import org.bson.types.ObjectId;
 
 import lombok.AllArgsConstructor;
@@ -13,9 +15,9 @@ public class Bike {
     private ObjectId id;
     private String barcode;
     private String type;
-    private int battery;
-    private int timeLeft;
-    private int value;
-    private double lat;
-    private double lon;
+    private Optional<Integer> battery;
+    private Optional<Integer> timeLeft;
+    private double value;
+    private Optional<Double> lat;
+    private Optional<Double> lon;
 }

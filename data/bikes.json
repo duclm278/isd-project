@@ -1,0 +1,56 @@
+[
+  {
+    "barcode": "00000001",
+    "type": "N1",
+    "battery": null,
+    "timeLeft": null,
+    "value": 1000000,
+    "lat": null,
+    "lon": null
+  },
+  {
+    "barcode": "00000002",
+    "type": "N1",
+    "battery": null,
+    "timeLeft": null,
+    "value": 1100000,
+    "lat": null,
+    "lon": null
+  },
+  {
+    "barcode": "00000003",
+    "type": "E1",
+    "battery": 100,
+    "timeLeft": 31536000,
+    "value": 10000000,
+    "lat": null,
+    "lon": null
+  },
+  {
+    "barcode": "00000004",
+    "type": "E1",
+    "battery": 75,
+    "timeLeft": 23652000,
+    "value": 11000000,
+    "lat": null,
+    "lon": null
+  },
+  {
+    "barcode": "00000005",
+    "type": "N2",
+    "battery": null,
+    "timeLeft": null,
+    "value": 2000000,
+    "lat": null,
+    "lon": null
+  },
+  {
+    "barcode": "00000006",
+    "type": "N2",
+    "battery": null,
+    "timeLeft": null,
+    "value": 2000000,
+    "lat": null,
+    "lon": null
+  }
+]
