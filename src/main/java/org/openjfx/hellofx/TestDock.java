@@ -11,8 +11,8 @@ public class TestDock {
         dockService.find().forEach(dock -> System.out.println(dock + "\n"));
 
         // Dock: findById
-        System.out.println("Dock with id 64d6466e7ed72fcda7b14597:");
-        Dock dock = dockService.findById("64d6466e7ed72fcda7b14597");
+        System.out.println("Dock with id " + dockService.find().get(0).getId() + ":");
+        Dock dock = dockService.findById(dockService.find().get(0).getId());
         System.out.println(dock + "\n");
 
         // Dock: save
@@ -27,13 +27,13 @@ public class TestDock {
         System.out.println(deletedDock + "\n");
 
         // Dock: findByIdAndReplace
-        System.out.println("Replacing dock with id 64d6466e7ed72fcda7b14597:");
+        System.out.println("Replacing dock with id " + dockService.find().get(0).getId() + ":");
         Dock updatedDock = new Dock(null, "test", "test", 0, 0.0, 0.0);
-        updatedDock = dockService.findByIdAndReplace("64d6466e7ed72fcda7b14597", updatedDock);
+        updatedDock = dockService.findByIdAndReplace(dockService.find().get(0).getId(), updatedDock);
         System.out.println(updatedDock + "\n");
 
-        System.out.println("Restoring dock with id 64d6466e7ed72fcda7b14597:");
-        Dock restoredDock = dockService.findByIdAndReplace("64d6466e7ed72fcda7b14597", dock);
+        System.out.println("Restoring dock with id " + dockService.find().get(0).getId() + ":");
+        Dock restoredDock = dockService.findByIdAndReplace(dockService.find().get(0).getId(), dock);
         System.out.println(restoredDock + "\n");
     }
 }

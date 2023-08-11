@@ -1,5 +1,7 @@
 package org.openjfx.hellofx;
 
+import java.util.List;
+
 import org.openjfx.hellofx.models.bike.Bike;
 import org.openjfx.hellofx.models.bike.BikeService;
 
@@ -8,16 +10,17 @@ public class TestBike {
         // Bike: find
         BikeService bikeService = new BikeService();
         System.out.println("All bikes:");
-        bikeService.find().forEach(bike -> System.out.println(bike + "\n"));
+        List<Bike> bikes = bikeService.find();
+        bikes.forEach(bike -> System.out.println(bike + "\n"));
 
         // Bike: findById
-        System.out.println("Bike with id 64d64f967ed72fcda7b145b1:");
-        Bike bike = bikeService.findById("64d64f967ed72fcda7b145b1");
+        System.out.println("Bike with id " + bikes.get(0).getId() + ":");
+        Bike bike = bikeService.findById(bikes.get(0).getId());
         System.out.println(bike + "\n");
 
         // Bike: findByBarcode
-        System.out.println("Bike with barcode 00000001:");
-        bike = bikeService.findByBarcode("00000001");
+        System.out.println("Bike with barcode " + bikes.get(0).getBarcode() + ":");
+        bike = bikeService.findByBarcode(bikes.get(0).getBarcode());
         System.out.println(bike + "\n");
 
         // Bike: save
@@ -32,13 +35,13 @@ public class TestBike {
         System.out.println(deletedBike + "\n");
 
         // Bike: findByIdAndReplace
-        System.out.println("Replacing bike with id 64d64f967ed72fcda7b145b1:");
+        System.out.println("Replacing bike with id " + bikes.get(0).getId() + ":");
         Bike updatedBike = new Bike(null, "00000001", "test", null, null, 0.0, null, null);
-        updatedBike = bikeService.findByIdAndReplace("64d64f967ed72fcda7b145b1", updatedBike);
+        updatedBike = bikeService.findByIdAndReplace(bikes.get(0).getId(), updatedBike);
         System.out.println(updatedBike + "\n");
 
-        System.out.println("Restoring bike with id 64d64f967ed72fcda7b145b1:");
-        Bike restoredBike = bikeService.findByIdAndReplace("64d64f967ed72fcda7b145b1", bike);
+        System.out.println("Restoring bike with id " + bikes.get(0).getId() + ":");
+        Bike restoredBike = bikeService.findByIdAndReplace(bikes.get(0).getId(), bike);
         System.out.println(restoredBike + "\n");
     }
 }
