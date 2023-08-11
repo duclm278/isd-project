@@ -20,8 +20,8 @@ public class DatabaseConnector {
 
     public static MongoDatabase connect(MongoClient mongoClient) {
         CodecProvider pojoCodecProvider = PojoCodecProvider.builder()
-                .register(new OptionalPropertyCodecProvider())
                 .automatic(true)
+                .register(new OptionalPropertyCodecProvider())
                 .build();
         CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
         return mongoClient.getDatabase(Configs.MONGO_DATABASE).withCodecRegistry(pojoCodecRegistry);
