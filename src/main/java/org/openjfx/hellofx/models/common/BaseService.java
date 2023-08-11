@@ -10,21 +10,24 @@ import org.bson.types.ObjectId;
 import org.openjfx.hellofx.db.DatabaseConnector;
 
 import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
 import com.mongodb.client.result.InsertOneResult;
 
+import lombok.Getter;
+
+@Getter
 public class BaseService<T> {
+    private final MongoClient client;
+    private final MongoDatabase database;
     private final MongoCollection<T> collection;
 
     public BaseService(String collectionName, Class<T> clazz) {
-        MongoDatabase database = DatabaseConnector.connect();
+        client = DatabaseConnector.create();
+        database = DatabaseConnector.connect(client);
         collection = database.getCollection(collectionName, clazz);
-    }
-
-    public MongoCollection<T> getCollection() {
-        return collection;
     }
 
     public T save(T object) {
@@ -69,5 +72,4 @@ public class BaseService<T> {
     public T findByIdAndDelete(String id) {
         return this.findByIdAndDelete(new ObjectId(id));
     }
-
 }

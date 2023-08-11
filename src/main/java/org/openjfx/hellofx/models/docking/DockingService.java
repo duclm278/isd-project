@@ -11,6 +11,6 @@ public class DockingService extends BaseService<Docking> {
     }
 
     public Docking findByBikeIdAndDelete(ObjectId bikeId) {
-        return this.getCollection().findOneAndDelete(eq("bikeId", bikeId));
+        return getCollection().findOneAndDelete(eq("bikeId", bikeId));
     }
 }

@@ -9,6 +9,9 @@ import org.openjfx.hellofx.models.common.BaseService;
 import org.openjfx.hellofx.models.docking.Docking;
 import org.openjfx.hellofx.models.docking.DockingService;
 
+import com.mongodb.client.ClientSession;
+import com.mongodb.client.TransactionBody;
+
 public class RentingService extends BaseService<Renting> {
     public RentingService() {
         super("rentings", Renting.class);
@@ -30,19 +33,35 @@ public class RentingService extends BaseService<Renting> {
     }
 
     public Renting returnBike(ObjectId bikeId, ObjectId dockId) {
-        Renting renting = this.findByBikeId(bikeId);
-        if (renting == null) {
-            return null;
+        ClientSession clientSession = getClient().startSession();
+
+        TransactionBody<Renting> txnBody = new TransactionBody<>() {
+            public Renting execute() {
+                Renting renting = findByBikeId(bikeId);
+                if (renting == null) {
+                    return null;
+                }
+
+                DockingService dockingService = new DockingService();
+                Docking docking = dockingService.save(new Docking(new ObjectId(), bikeId, dockId));
+                if (docking == null) {
+                    return null;
+                }
+
+                renting.setEndTime(LocalDateTime.now());
+                return findByIdAndReplace(renting.getId(), renting);
+            }
+        };
+
+        Renting result = null;
+        try {
+            result = clientSession.withTransaction(txnBody);
+        } catch (RuntimeException e) {
+            System.out.println(e);
+        } finally {
+            clientSession.close();
         }
 
-        DockingService dockingService = new DockingService();
-        Docking docking = dockingService.save(new Docking(new ObjectId(), bikeId, dockId));
-        if (docking == null) {
-            return null;
-        }
-
-        renting.setEndTime(LocalDateTime.now());
-        Renting updatedRenting = this.findByIdAndReplace(renting.getId(), renting);
-        return updatedRenting;
+        return result;
     }
 }

@@ -14,10 +14,13 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 
 public class DatabaseConnector {
-    public static MongoDatabase connect() {
+    public static MongoClient create() {
+        return MongoClients.create(Configs.MONGO_URI);
+    }
+
+    public static MongoDatabase connect(MongoClient mongoClient) {
         CodecProvider pojoCodecProvider = PojoCodecProvider.builder().automatic(true).build();
         CodecRegistry pojoCodecRegistry = fromRegistries(getDefaultCodecRegistry(), fromProviders(pojoCodecProvider));
-        MongoClient mongoClient = MongoClients.create(Configs.MONGO_URI);
         return mongoClient.getDatabase(Configs.MONGO_DATABASE).withCodecRegistry(pojoCodecRegistry);
     }
 }
