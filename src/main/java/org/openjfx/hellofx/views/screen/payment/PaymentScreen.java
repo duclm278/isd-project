@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.view.screen.payment;
+package org.openjfx.hellofx.views.screen.payment;
 
 import java.io.IOException;
 import java.net.URL;
@@ -10,11 +10,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.view.screen.ScreensStateHandler;
-import org.openjfx.hellofx.view.screen.rent.RentScreen;
-import org.openjfx.hellofx.view.screen.waitingroom.WaitingRoomScreen;
+import org.openjfx.hellofx.views.screen.ScreensStateHandler;
+import org.openjfx.hellofx.views.screen.rent.RentScreen;
+import org.openjfx.hellofx.views.screen.waitingroom.WaitingRoomScreen;
 
-public class PaymentScreen extends ScreensStateHandler implements Initializable{
+public class PaymentScreen extends ScreensStateHandler implements Initializable {
     Stage stage;
 
     @FXML
@@ -23,7 +23,8 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable{
     public PaymentScreen(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
-        // int bike_type = ((HashMap<String, Object>) this.state.get("bike_details")).get("type");
+        // int bike_type = ((HashMap<String, Object>)
+        // this.state.get("bike_details")).get("type");
     }
 
     @Override
@@ -33,8 +34,8 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable{
             try {
                 wait_screen = new WaitingRoomScreen(this.stage, Configs.FOURTH_PATH);
                 wait_screen.show();
-                
-            }catch (IOException e) {
+
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });

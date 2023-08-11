@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.view.screen;
+package org.openjfx.hellofx.views.screen;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -6,13 +6,13 @@ import java.util.HashMap;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ScreensStateHandler extends FXMLScenceLoader{
+public class ScreensStateHandler extends FXMLScenceLoader {
     protected final Stage stage;
     private Scene scene;
     public static HashMap<String, Object> state = new HashMap<>();
 
     public ScreensStateHandler(Stage stage, String screenPath) throws IOException {
-        super(stage,screenPath);
+        super(stage, screenPath);
         this.stage = stage;
     }
 
@@ -21,7 +21,8 @@ public class ScreensStateHandler extends FXMLScenceLoader{
         this.stage.setScene(this.scene);
         this.stage.show();
     }
-    public void setState(String key, Object value){
+
+    public void setState(String key, Object value) {
         this.state.put(key, value);
     }
 }

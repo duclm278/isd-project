@@ -1,8 +1,9 @@
-package org.openjfx.hellofx.models.bike2;
+package org.openjfx.hellofx.models.bike;
 
 import org.bson.Document;
 import org.openjfx.hellofx.db.DatabaseConnector;
-import org.openjfx.hellofx.models.bike.Bike;
+import org.openjfx.hellofx.models.bike7.Bike;
+
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.List;

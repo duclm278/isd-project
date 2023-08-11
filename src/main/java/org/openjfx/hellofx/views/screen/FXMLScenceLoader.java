@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.view.screen;
+package org.openjfx.hellofx.views.screen;
 
 import java.io.IOException;
 
@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.openjfx.hellofx.App;
 import org.openjfx.hellofx.controllers.BarCodeController;
+
 public class FXMLScenceLoader {
     public Parent root;
     protected AnchorPane content;
@@ -24,7 +25,8 @@ public class FXMLScenceLoader {
     public Parent getLoader() {
         return this.root;
     }
+
     public AnchorPane getContent() {
         return this.content;
-      }
+    }
 }

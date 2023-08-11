@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.openjfx.hellofx.models.movie.MovieService;
 import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.view.screen.barcode.BarCodeScreen;
+import org.openjfx.hellofx.views.screen.barcode.BarCodeScreen;
 
 import javafx.application.Application;
 import javafx.scene.Parent;

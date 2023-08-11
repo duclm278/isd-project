@@ -1,4 +1,5 @@
-package org.openjfx.hellofx.view.screen.barcode;
+package org.openjfx.hellofx.views.screen.barcode;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -13,13 +14,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.view.screen.ScreensStateHandler;
-import org.openjfx.hellofx.view.screen.rent.RentScreen;
-import org.openjfx.hellofx.models.bike.Bike;
 
-public class BarCodeScreen extends ScreensStateHandler implements Initializable{
+import org.openjfx.hellofx.models.bike7.Bike;
+import org.openjfx.hellofx.utils.Configs;
+import org.openjfx.hellofx.views.screen.ScreensStateHandler;
+import org.openjfx.hellofx.views.screen.rent.RentScreen;
+
+public class BarCodeScreen extends ScreensStateHandler implements Initializable {
     Stage stage;
+
     public BarCodeScreen(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
@@ -38,17 +41,16 @@ public class BarCodeScreen extends ScreensStateHandler implements Initializable{
             RentScreen rent_screen;
             try {
                 Bike bike = new Bike();
-                HashMap<String, Object> bike_details = bike.getBikeByBarCode(bike.dictionary,"X0S@aaa");
-                if(bike_details!=null){
-                    this.setState("bike_details",bike_details);
+                HashMap<String, Object> bike_details = bike.getBikeByBarCode(bike.dictionary, "X0S@aaa");
+                if (bike_details != null) {
+                    this.setState("bike_details", bike_details);
                     rent_screen = new RentScreen(this.stage, Configs.SECOND_PATH);
                     rent_screen.show();
-                }
-                else{
+                } else {
                     System.out.println("DATA NULL");
                 }
-                
-            }catch (IOException e) {
+
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
@@ -56,8 +58,6 @@ public class BarCodeScreen extends ScreensStateHandler implements Initializable{
 
     @Override
     public void show() {
-      super.show();
+        super.show();
     }
 }
-
-
