@@ -36,7 +36,7 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable 
         confirm_cardInfo.setOnMouseClicked(event -> {
             ConfirmPaymentScreen confirm_payment_screen;
             try {
-                confirm_payment_screen = new ConfirmPaymentScreen(this.stage, Configs.FIFTH_PATH);
+                confirm_payment_screen = new ConfirmPaymentScreen(this.stage, Configs.SEVENTH_PATH);
                 confirm_payment_screen.show();
 
             } catch (IOException e) {
