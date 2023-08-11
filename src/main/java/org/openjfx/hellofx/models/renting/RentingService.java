@@ -18,7 +18,7 @@ public class RentingService extends BaseService<Renting> {
     }
 
     public Renting findByBikeId(ObjectId bikeId) {
-        return this.find(eq("bikeId", bikeId)).get(0);
+        return find(eq("bikeId", bikeId)).get(0);
     }
 
     public Renting rentBike(ObjectId bikeId) {
@@ -29,7 +29,7 @@ public class RentingService extends BaseService<Renting> {
         }
 
         Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(), null);
-        return this.save(renting);
+        return save(renting);
     }
 
     public Renting returnBike(ObjectId bikeId, ObjectId dockId) {
