@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.models.bike;
+package org.openjfx.hellofx.models.dock;
 
 import org.bson.types.ObjectId;
 
@@ -9,12 +9,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Bike {
+public class Dock {
     private ObjectId id;
-    private String type;
-    private int battery;
-    private int timeLeft;
-    private int value;
+    private String name;
+    private String address;
+    private int capacity;
     private double lat;
     private double lon;
 }
