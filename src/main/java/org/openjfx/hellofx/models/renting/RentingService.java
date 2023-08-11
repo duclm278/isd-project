@@ -35,14 +35,14 @@ public class RentingService extends BaseService<Renting> {
             return null;
         }
 
-        renting.setEndTime(LocalDateTime.now());
-        Renting updatedRenting = this.findByIdAndReplace(renting.getId(), renting);
-        if (updatedRenting == null) {
+        DockingService dockingService = new DockingService();
+        Docking docking = dockingService.save(new Docking(new ObjectId(), bikeId, dockId));
+        if (docking == null) {
             return null;
         }
 
-        DockingService dockingService = new DockingService();
-        Docking docking = dockingService.save(new Docking(new ObjectId(), bikeId, dockId));
-        return docking != null ? updatedRenting : null;
+        renting.setEndTime(LocalDateTime.now());
+        Renting updatedRenting = this.findByIdAndReplace(renting.getId(), renting);
+        return updatedRenting;
     }
 }
