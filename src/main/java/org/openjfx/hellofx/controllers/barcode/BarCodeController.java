@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.controllers.screen.barcode;
+package org.openjfx.hellofx.controllers.barcode;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,9 +16,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import org.openjfx.hellofx.controllers.screen.ScreensStateHandler;
-import org.openjfx.hellofx.controllers.screen.home.HomeController;
-import org.openjfx.hellofx.controllers.screen.rent.RentController;
+import org.openjfx.hellofx.controllers.ScreensStateHandler;
+import org.openjfx.hellofx.controllers.home.HomeController;
+import org.openjfx.hellofx.controllers.rent.RentController;
 import org.openjfx.hellofx.models.bike7.Bike;
 import org.openjfx.hellofx.utils.Configs;
 
@@ -62,8 +62,8 @@ public class BarCodeController extends ScreensStateHandler implements Initializa
         home_btn.setOnMouseClicked(event -> {
             HomeController home;
             try {
-                    home = new HomeController(this.stage, Configs.HOME_PATH);
-                    home.show();
+                home = new HomeController(this.stage, Configs.HOME_PATH);
+                home.show();
 
             } catch (IOException e) {
                 e.printStackTrace();

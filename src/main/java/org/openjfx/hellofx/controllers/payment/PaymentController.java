@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.controllers.screen.payment;
+package org.openjfx.hellofx.controllers.payment;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,10 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import org.openjfx.hellofx.controllers.screen.ScreensStateHandler;
-import org.openjfx.hellofx.controllers.screen.home.HomeController;
-import org.openjfx.hellofx.controllers.screen.rent.RentController;
-import org.openjfx.hellofx.controllers.screen.waitingroom.WaitingRoomController;
+import org.openjfx.hellofx.controllers.ScreensStateHandler;
+import org.openjfx.hellofx.controllers.home.HomeController;
+import org.openjfx.hellofx.controllers.rent.RentController;
+import org.openjfx.hellofx.controllers.waitingroom.WaitingRoomController;
 import org.openjfx.hellofx.utils.Configs;
 
 public class PaymentController extends ScreensStateHandler implements Initializable {
@@ -48,8 +48,8 @@ public class PaymentController extends ScreensStateHandler implements Initializa
         home_btn.setOnMouseClicked(event -> {
             HomeController home;
             try {
-                    home = new HomeController(this.stage, Configs.HOME_PATH);
-                    home.show();
+                home = new HomeController(this.stage, Configs.HOME_PATH);
+                home.show();
 
             } catch (IOException e) {
                 e.printStackTrace();

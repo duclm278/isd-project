@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.views.screen.barcode;
+package org.openjfx.hellofx.views.barcode;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,8 +17,8 @@ import javafx.stage.Stage;
 
 import org.openjfx.hellofx.models.bike7.Bike;
 import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.views.screen.ScreensStateHandler;
-import org.openjfx.hellofx.views.screen.rent.RentScreen;
+import org.openjfx.hellofx.views.ScreensStateHandler;
+import org.openjfx.hellofx.views.rent.RentScreen;
 
 public class BarCodeScreen extends ScreensStateHandler implements Initializable {
     Stage stage;

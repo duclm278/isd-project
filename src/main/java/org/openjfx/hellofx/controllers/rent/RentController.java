@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.views.screen.rent;
+package org.openjfx.hellofx.controllers.rent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,16 +12,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+import org.openjfx.hellofx.controllers.ScreensStateHandler;
+import org.openjfx.hellofx.controllers.payment.PaymentController;
 import org.openjfx.hellofx.models.bike7.Bike;
 import org.openjfx.hellofx.models.bike7.StandardBike;
 import org.openjfx.hellofx.models.bike7.StandardE_Bike;
 import org.openjfx.hellofx.models.bike7.TwinBike;
 import org.openjfx.hellofx.models.bike7.TypeOfBike;
 import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.views.screen.ScreensStateHandler;
-import org.openjfx.hellofx.views.screen.payment.PaymentScreen;
+import org.openjfx.hellofx.views.RentScreen;
 
-public class RentScreen extends ScreensStateHandler implements Initializable {
+public class RentController extends ScreensStateHandler implements Initializable {
     Stage stage;
 
     String[] list_info;
@@ -39,20 +40,23 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
     @FXML
     private ListView<String> bike_info;
 
-    public RentScreen(Stage stage, String screenPath) throws IOException {
+    public RentController(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
+        RentScreen rentscreen = new RentScreen();
         System.out.println("STATE:" + this.state);
-        this.displayBikeDetails((HashMap<String, Object>) this.state.get("bike_details"));
-        this.displayPayRules((HashMap<String, Object>) this.state.get("bike_details"));
+        this.getBikeType((HashMap<String, Object>) this.state.get("bike_details"));
+        rentscreen.displayBikeDetails((HashMap<String, Object>) this.state.get("bike_details"), bike_info);
+        rentscreen.displayPayRules(this.bike, deposit_amount, rent_rule);
+        this.setState("bikeType_object", (HashMap<String, Object>) this.state.get("bike_details"));
     }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         pay_now.setOnMouseClicked(event -> {
-            PaymentScreen pay_screen;
+            PaymentController pay_screen;
             try {
-                pay_screen = new PaymentScreen(this.stage, Configs.THIRD_PATH);
+                pay_screen = new PaymentController(this.stage, Configs.THIRD_PATH);
                 pay_screen.show();
 
             } catch (IOException e) {
@@ -61,21 +65,7 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
         });
     }
 
-    public void displayBikeDetails(HashMap<String, Object> bike_details) {
-        String[] resultArray = new String[bike_details.size()];
-        int index = 0;
-
-        for (String key : bike_details.keySet()) {
-            Object value = bike_details.get(key);
-            resultArray[index] = key + ": " + value;
-            index++;
-        }
-        this.list_info = resultArray;
-
-        bike_info.getItems().addAll(this.list_info);
-    }
-
-    public void displayPayRules(HashMap<String, Object> bike_details) {
+    public void getBikeType(HashMap<String, Object> bike_details) {
         String type = bike_details.get("type").toString();
         if (type.equals("1")) {
             this.bike = new StandardBike();
@@ -86,12 +76,6 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
         if (type.equals("3")) {
             this.bike = new TwinBike();
         }
-
-        String[] rule = { "First 10 mins: free", "First 30 mins: " + this.bike.first30minAmount() + " đ",
-                "After 30 mins: " + this.bike.after30minAmount() + "đ each 15 mins" };
-        rent_rule.getItems().addAll(rule);
-        deposit_amount.setText(Integer.toString(bike.depositAmount()) + " đ");
-        this.setState("bikeType_object", bike_details);
     }
 
 }

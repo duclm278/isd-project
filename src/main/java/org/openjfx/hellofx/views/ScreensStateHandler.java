@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.controllers.screen;
+package org.openjfx.hellofx.views;
 
 import java.io.IOException;
 import java.util.HashMap;

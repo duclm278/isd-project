@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.controllers.screen;
+package org.openjfx.hellofx.views;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.openjfx.hellofx.App;
-import org.openjfx.hellofx.views.BarCodeScreen;
+import org.openjfx.hellofx.controllers.BarCodeController;
 
 public class FXMLScenceLoader {
     public Parent root;

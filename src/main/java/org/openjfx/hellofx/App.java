@@ -2,8 +2,8 @@ package org.openjfx.hellofx;
 
 import java.io.IOException;
 
-import org.openjfx.hellofx.controllers.screen.barcode.BarCodeController;
-import org.openjfx.hellofx.controllers.screen.home.HomeController;
+import org.openjfx.hellofx.controllers.barcode.BarCodeController;
+import org.openjfx.hellofx.controllers.home.HomeController;
 import org.openjfx.hellofx.models.movie.MovieService;
 import org.openjfx.hellofx.utils.Configs;
 

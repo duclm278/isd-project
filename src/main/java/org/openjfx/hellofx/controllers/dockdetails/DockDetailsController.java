@@ -1,11 +1,11 @@
-package org.openjfx.hellofx.controllers.screen.dockdetails;
+package org.openjfx.hellofx.controllers.dockdetails;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.openjfx.hellofx.controllers.screen.ScreensStateHandler;
-import org.openjfx.hellofx.controllers.screen.home.HomeController;
+import org.openjfx.hellofx.controllers.ScreensStateHandler;
+import org.openjfx.hellofx.controllers.home.HomeController;
 import org.openjfx.hellofx.utils.Configs;
 
 import javafx.fxml.FXML;
@@ -29,14 +29,13 @@ public class DockDetailsController extends ScreensStateHandler implements Initia
         home_btn.setOnMouseClicked(event -> {
             HomeController home;
             try {
-                    home = new HomeController(this.stage, Configs.HOME_PATH);
-                    home.show();
+                home = new HomeController(this.stage, Configs.HOME_PATH);
+                home.show();
 
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
     }
-
 
 }

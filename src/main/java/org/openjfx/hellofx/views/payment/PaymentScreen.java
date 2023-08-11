@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.views.screen.payment;
+package org.openjfx.hellofx.views.payment;
 
 import java.io.IOException;
 import java.net.URL;
@@ -10,9 +10,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.views.screen.ScreensStateHandler;
-import org.openjfx.hellofx.views.screen.rent.RentScreen;
-import org.openjfx.hellofx.views.screen.waitingroom.WaitingRoomScreen;
+import org.openjfx.hellofx.views.ScreensStateHandler;
+import org.openjfx.hellofx.views.rent.RentScreen;
+import org.openjfx.hellofx.views.waitingroom.WaitingRoomScreen;
 
 public class PaymentScreen extends ScreensStateHandler implements Initializable {
     Stage stage;

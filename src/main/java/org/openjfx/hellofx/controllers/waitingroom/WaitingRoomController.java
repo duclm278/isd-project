@@ -1,10 +1,12 @@
-package org.openjfx.hellofx.views.screen.waitingroom;
+package org.openjfx.hellofx.controllers.waitingroom;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.controllers.ScreensStateHandler;
+import org.openjfx.hellofx.controllers.payment.PaymentController;
 import org.openjfx.hellofx.models.bike7.StandardBike;
 import org.openjfx.hellofx.models.bike7.StandardE_Bike;
 import org.openjfx.hellofx.models.bike7.TwinBike;
@@ -17,16 +19,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.openjfx.hellofx.utils.Configs;
-import org.openjfx.hellofx.views.screen.ScreensStateHandler;
-import org.openjfx.hellofx.views.screen.payment.PaymentScreen;
 
-public class WaitingRoomScreen extends ScreensStateHandler implements Initializable {
+public class WaitingRoomController extends ScreensStateHandler implements Initializable {
     Time time = new Time("0:20:0");
     Stage stage;
     TypeOfBike bike = new StandardE_Bike();
@@ -42,7 +43,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
     @FXML
     private VBox vbox_test;
     @FXML
-    private SubScene subscence_test;
+    private AnchorPane subscence_test;
     @FXML
     private ListView<String> list_view_bike_details;
     @FXML
@@ -58,7 +59,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
                                 .setText(Integer.toString(this.bike.calculateTotal(this.time.getTotalMinute())) + " đ");
                     }));
 
-    public WaitingRoomScreen(Stage stage, String screenPath) throws IOException {
+    public WaitingRoomController(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
         // StackPane subsceneRoot = (StackPane) subscence_test.getRoot();
