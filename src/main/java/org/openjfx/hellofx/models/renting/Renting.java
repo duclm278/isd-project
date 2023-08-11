@@ -1,4 +1,6 @@
-package org.openjfx.hellofx.models.docking;
+package org.openjfx.hellofx.models.renting;
+
+import java.time.LocalDateTime;
 
 import org.bson.types.ObjectId;
 
@@ -9,8 +11,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Docking {
+public class Renting {
     private ObjectId id;
     private ObjectId bikeId;
-    private ObjectId dockId;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 }

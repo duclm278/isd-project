@@ -29,7 +29,7 @@ public class BaseService<T> {
 
     public T save(T object) {
         InsertOneResult result = collection.insertOne(object);
-        return collection.find(eq("_id", result.getInsertedId())).first();
+        return result.wasAcknowledged() ? object : null;
     }
 
     public List<T> find() {
@@ -44,17 +44,30 @@ public class BaseService<T> {
         return documents.into(objects);
     }
 
+    public T findById(ObjectId id) {
+        return collection.find(eq("_id", id)).first();
+    }
+
+    public T findByIdAndReplace(ObjectId id, T object) {
+        FindOneAndReplaceOptions options = new FindOneAndReplaceOptions()
+                .returnDocument(com.mongodb.client.model.ReturnDocument.AFTER);
+        return collection.findOneAndReplace(eq("_id", id), object, options);
+    }
+
+    public T findByIdAndDelete(ObjectId id) {
+        return collection.findOneAndDelete(eq("_id", id));
+    }
+
     public T findById(String id) {
-        return collection.find(eq("_id", new ObjectId(id))).first();
+        return this.findById(new ObjectId(id));
     }
 
     public T findByIdAndReplace(String id, T object) {
-        FindOneAndReplaceOptions options = new FindOneAndReplaceOptions()
-                .returnDocument(com.mongodb.client.model.ReturnDocument.AFTER);
-        return collection.findOneAndReplace(eq("_id", new ObjectId(id)), object, options);
+        return this.findByIdAndReplace(new ObjectId(id), object);
     }
 
     public T findByIdAndDelete(String id) {
-        return collection.findOneAndDelete(eq("_id", new ObjectId(id)));
+        return this.findByIdAndDelete(new ObjectId(id));
     }
+
 }

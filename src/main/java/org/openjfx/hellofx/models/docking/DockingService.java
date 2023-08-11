@@ -1,14 +1,16 @@
 package org.openjfx.hellofx.models.docking;
 
+import static com.mongodb.client.model.Filters.eq;
+
+import org.bson.types.ObjectId;
 import org.openjfx.hellofx.models.common.BaseService;
 
-import com.mongodb.client.MongoCollection;
-
 public class DockingService extends BaseService<Docking> {
-    private final MongoCollection<Docking> collection;
-
     public DockingService() {
         super("dockings", Docking.class);
-        this.collection = super.getCollection();
+    }
+
+    public Docking findByBikeIdAndDelete(ObjectId bikeId) {
+        return this.getCollection().findOneAndDelete(eq("bikeId", bikeId));
     }
 }
