@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.openjfx.hellofx.controller.transaction.TransactionController;
+import org.openjfx.hellofx.controllers.transaction.TransactionController;
 import org.openjfx.hellofx.models.transaction.Transaction;
 import org.openjfx.hellofx.screens.ScreensStateHandler;
 import org.openjfx.hellofx.screens.home.HomeScreen;

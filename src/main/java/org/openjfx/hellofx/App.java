@@ -22,7 +22,7 @@ public class App extends Application {
 
         Parent root;
         try {
-            Image iconImage = new Image("E:/itss_final2/isd-project/src/main/resources/org/openjfx/hellofx/image/window_img.png");
+            Image iconImage = new Image("org/openjfx/hellofx/image/window_img.png");
             primaryStage.getIcons().add(iconImage);
             HomeScreen home = new HomeScreen(primaryStage, Configs.HOME_PATH);
             home.show();

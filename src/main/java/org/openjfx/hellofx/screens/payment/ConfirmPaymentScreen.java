@@ -41,17 +41,28 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
         confirm_bill_btn.setOnMouseClicked(event->{
+            String command = (String) this.state.get("command");
+            int deposit = (int) this.state.get("deposit");
 
             TransactionController transactionController = new TransactionController();
-//            Transaction transaction = new Transaction(null, null, null, null, null,null,null, null);
-//            int result = transactionController.progressTransaction(transaction);
-
+            Transaction transaction = new Transaction(
+                    null,
+                    command,
+                    this.creditCard.getCardNumber(),
+                    this.creditCard.getCardHolderName(),
+                    this.creditCard.getCvv(),
+                    this.creditCard.getExprDate(),
+                    "rent a bike" + command,
+                    deposit);
+            int result = transactionController.progressTransaction(transaction);
+            System.out.println(result);
             ResultScreen resultScreen;
             try {
                 resultScreen = new ResultScreen(this.stage, Configs.EIGHTH_PATH);
                 //TODO
-                resultScreen.display(2);
+                resultScreen.display(result);
                 resultScreen.show();
             } catch (IOException e) {
                 e.printStackTrace();

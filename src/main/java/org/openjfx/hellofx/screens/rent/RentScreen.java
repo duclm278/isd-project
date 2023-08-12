@@ -49,6 +49,7 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
         RentDisplayer rentscreen = new RentDisplayer();
         System.out.println("STATE:" + this.state);
         this.getBikeType((Bike) this.state.get("bike_details"));
+
         rentscreen.displayBikeDetails((Bike) this.state.get("bike_details"), bike_info);
         rentscreen.displayPayRules(this.bike, deposit_amount, rent_rule);
         // this.setState("bikeType_object", (HashMap<String, Object>) this.state.get("bike_details"));
@@ -62,7 +63,7 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
                 this.setState("command", "pay");
                 this.setState("amount", this.bike.depositAmount());
                 this.setState("deposit", this.bike.depositAmount());
-                System.out.println("COMMand:"+this.state);
+                System.out.println("command:"+this.state.get("command"));
                 pay_screen = new PaymentScreen(this.stage, Configs.THIRD_PATH);
                 pay_screen.show();
 
