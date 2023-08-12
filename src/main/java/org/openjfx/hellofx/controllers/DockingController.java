@@ -70,7 +70,7 @@ public class DockingController {
         return delete(new ObjectId(id));
     }
 
-    public Docking findByBikeIdAndDelete(ObjectId bikeId) {
+    public Docking deleteByBikeId(ObjectId bikeId) {
         Docking result = dockingService.findByBikeIdAndDelete(bikeId);
         if (result == null) {
             throw new RuntimeException("Failed to delete docking status");
@@ -78,8 +78,8 @@ public class DockingController {
         return result;
     }
 
-    public Docking findByBikeIdAndDelete(String bikeId) {
-        return findByBikeIdAndDelete(new ObjectId(bikeId));
+    public Docking deleteByBikeId(String bikeId) {
+        return deleteByBikeId(new ObjectId(bikeId));
     }
 
     public List<Bike> findBikesByDockId(ObjectId dockId) {
