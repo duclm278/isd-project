@@ -1,11 +1,21 @@
 package org.openjfx.hellofx.models.dock;
 
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.openjfx.hellofx.models.common.BaseService;
+
+import com.mongodb.client.model.Filters;
 
 public class DockService extends BaseService<Dock> {
     public DockService() {
         super("docks", Dock.class);
+    }
+
+    public List<Dock> findByNameOrAddress(String query) {
+        return find(Filters.or(
+                Filters.regex("name", query, "i"),
+                Filters.regex("address", query, "i")));
     }
 
     public Dock findByIdAndIncrementNumBikes(ObjectId id) {
