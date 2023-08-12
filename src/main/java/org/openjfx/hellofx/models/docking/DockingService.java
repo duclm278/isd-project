@@ -2,9 +2,12 @@ package org.openjfx.hellofx.models.docking;
 
 import static com.mongodb.client.model.Filters.eq;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.models.bike.Bike;
+import org.openjfx.hellofx.models.bike.BikeService;
 import org.openjfx.hellofx.models.common.BaseService;
 import org.openjfx.hellofx.models.dock.Dock;
 import org.openjfx.hellofx.models.dock.DockService;
@@ -21,6 +24,15 @@ public class DockingService extends BaseService<Docking> {
 
     public Docking findByBikeId(String bikeId) {
         return findByBikeId(new ObjectId(bikeId));
+    }
+
+    public Docking findByBikeBarcode(String barcode) {
+        BikeService bikeService = new BikeService();
+        Bike bike = bikeService.findByBarcode(barcode);
+        if (bike == null) {
+            return null;
+        }
+        return findByBikeId(bike.getId());
     }
 
     @Override
@@ -60,5 +72,22 @@ public class DockingService extends BaseService<Docking> {
 
     public Docking findByBikeIdAndDelete(String bikeId) {
         return findByBikeIdAndDelete(new ObjectId(bikeId));
+    }
+
+    public List<Bike> findBikesByDockId(ObjectId dockId) {
+        List<Docking> dockings = find(eq("dockId", dockId));
+
+        List<Bike> bikes = new ArrayList<>();
+        BikeService bikeService = new BikeService();
+        for (Docking docking : dockings) {
+            Bike bike = bikeService.findById(docking.getBikeId());
+            bikes.add(bike);
+        }
+
+        return bikes;
+    }
+
+    public List<Bike> findBikesByDockId(String dockId) {
+        return findBikesByDockId(new ObjectId(dockId));
     }
 }

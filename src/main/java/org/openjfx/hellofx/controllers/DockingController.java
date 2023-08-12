@@ -3,6 +3,7 @@ package org.openjfx.hellofx.controllers;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.models.bike.Bike;
 import org.openjfx.hellofx.models.docking.Docking;
 import org.openjfx.hellofx.models.docking.DockingService;
 
@@ -41,6 +42,10 @@ public class DockingController {
         return findByBikeId(new ObjectId(bikeId));
     }
 
+    public Docking findByBikeBarcode(String barcode) {
+        return dockingService.findByBikeBarcode(barcode);
+    }
+
     public Docking update(ObjectId id, Docking docking) {
         Docking result = dockingService.findByIdAndReplace(id, docking);
         if (result == null) {
@@ -75,5 +80,13 @@ public class DockingController {
 
     public Docking findByBikeIdAndDelete(String bikeId) {
         return findByBikeIdAndDelete(new ObjectId(bikeId));
+    }
+
+    public List<Bike> findBikesByDockId(ObjectId dockId) {
+        return dockingService.findBikesByDockId(dockId);
+    }
+
+    public List<Bike> findBikesByDockId(String dockId) {
+        return findBikesByDockId(new ObjectId(dockId));
     }
 }
