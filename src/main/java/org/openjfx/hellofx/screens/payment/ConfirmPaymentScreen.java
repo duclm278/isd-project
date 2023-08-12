@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.openjfx.hellofx.controller.transaction.TransactionController;
 import org.openjfx.hellofx.models.card.CreditCard;
+import org.openjfx.hellofx.models.transaction.Transaction;
 import org.openjfx.hellofx.screens.ScreensStateHandler;
 import org.openjfx.hellofx.screens.home.HomeScreen;
 import org.openjfx.hellofx.utils.Configs;
@@ -19,7 +21,7 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
     Stage stage;
     private CreditCard creditCard;
     @FXML
-    private Button confirm_bill;
+    private Button confirm_bill_btn;
     @FXML
     private ImageView home_btn;
     @FXML
@@ -39,8 +41,21 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        confirm_bill.setOnMouseClicked(event->{
-            //TODO call transaction controller
+        confirm_bill_btn.setOnMouseClicked(event->{
+            //TODO
+            TransactionController transactionController = new TransactionController();
+//            Transaction transaction = new Transaction(null, null, null, null, null,null,null, null);
+//            int result = transactionController.progressTransaction(transaction);
+
+            ResultScreen resultScreen;
+            try {
+                resultScreen = new ResultScreen(this.stage, Configs.EIGHTH_PATH);
+                //TODO
+                resultScreen.display(2);
+                resultScreen.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
@@ -57,6 +72,7 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
         this.creditCard = creditCard;
     }
     public void display(CreditCard creditCard){
+
         cardHolderName.setText(creditCard.getCardHolderName());
         cardNumber.setText(creditCard.getCardNumber());
         cvv.setText(creditCard.getCvv());
@@ -67,6 +83,10 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
         cardNumber.setText(this.creditCard.getCardNumber());
         cvv.setText(this.creditCard.getCvv());
         exprDate.setText(this.creditCard.getExprDate());
+
+//        String command = this.state.get("command");
+
+//        totalBill.setText(amount);
     }
 
 

@@ -26,7 +26,7 @@
       </Text>
       <AnchorPane layoutX="-4.0" layoutY="64.0" prefHeight="335.0" prefWidth="607.0" style="-fx-border-color: black;">
          <children>
-            <Button fx:id="start_rent" layoutX="283.0" layoutY="270.0" mnemonicParsing="false" text="Confirm" />
+            <Button fx:id="confirm_bill_btn" layoutX="283.0" layoutY="270.0" mnemonicParsing="false" text="Confirm" />
             <Text layoutX="23.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Holder Name" />
             <Text layoutX="23.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number" />
             <Text layoutX="23.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVV" />
