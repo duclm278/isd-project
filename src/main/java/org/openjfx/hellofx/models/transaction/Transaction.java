@@ -10,9 +10,11 @@ import org.bson.types.ObjectId;
 @NoArgsConstructor
 public class Transaction {
     private ObjectId id;
-    private String cardNumber;
-    private String cardHolderName;
+    private String command;
+    private String cardCode;
+    private String owner;
+    private String cvvCode;
+    private String dateExpired;
+    private String transactionContent;
     private int amount;
-    private String note;
-    private int status;
 }
