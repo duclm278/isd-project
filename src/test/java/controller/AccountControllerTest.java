@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.openjfx.hellofx.controller.account.AccountController;
+import org.openjfx.hellofx.controllers.account.AccountController;
 import org.openjfx.hellofx.models.account.Account;
 import org.openjfx.hellofx.models.account.AccountService;
 import org.openjfx.hellofx.models.card.CreditCard;

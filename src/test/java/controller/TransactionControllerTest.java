@@ -1,8 +1,8 @@
 package controller;
 
 import org.junit.jupiter.api.Test;
-import org.openjfx.hellofx.controller.account.AccountController;
-import org.openjfx.hellofx.controller.transaction.TransactionController;
+import org.openjfx.hellofx.controllers.account.AccountController;
+import org.openjfx.hellofx.controllers.transaction.TransactionController;
 import org.openjfx.hellofx.models.account.Account;
 import org.openjfx.hellofx.models.account.AccountService;
 import org.openjfx.hellofx.models.transaction.Transaction;
