@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.models.bike.Bike;
+import org.openjfx.hellofx.models.bike.BikeService;
 import org.openjfx.hellofx.models.common.BaseService;
 import org.openjfx.hellofx.models.docking.Docking;
 import org.openjfx.hellofx.models.docking.DockingService;
@@ -25,6 +27,15 @@ public class RentingService extends BaseService<Renting> {
 
     public Renting findByBikeId(String bikeId) {
         return findByBikeId(new ObjectId(bikeId));
+    }
+
+    public Renting findByBikeBarcode(String barcode) {
+        BikeService bikeService = new BikeService();
+        Bike bike = bikeService.findByBarcode(barcode);
+        if (bike == null) {
+            return null;
+        }
+        return findByBikeId(bike.getId());
     }
 
     public Renting rentBike(ObjectId bikeId) {

@@ -19,6 +19,18 @@ public class RentingController {
         return result;
     }
 
+    public Renting findByBikeId(ObjectId bikeId) {
+        return rentingService.findByBikeId(bikeId);
+    }
+
+    public Renting findByBikeId(String bikeId) {
+        return findByBikeId(new ObjectId(bikeId));
+    }
+
+    public Renting findByBikeBarcode(String barcode) {
+        return rentingService.findByBikeBarcode(barcode);
+    }
+
     public Renting rentBike(String bikeId) {
         return rentBike(new ObjectId(bikeId));
     }
