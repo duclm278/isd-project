@@ -33,9 +33,9 @@ public class App extends Application {
         launch(args);
 
         // DEMO
-        MovieService movieService = new MovieService();
-        System.out.println("All movies:");
-        movieService.find().forEach(movie -> System.out.println(movie + "\n"));
+//        MovieService movieService = new MovieService();
+//        System.out.println("All movies:");
+//        movieService.find().forEach(movie -> System.out.println(movie + "\n"));
     }
 
 }

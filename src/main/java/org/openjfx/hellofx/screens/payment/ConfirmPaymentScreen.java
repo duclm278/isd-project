@@ -39,6 +39,9 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        confirm_bill.setOnMouseClicked(event->{
+            //TODO call transaction controller
+        });
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
