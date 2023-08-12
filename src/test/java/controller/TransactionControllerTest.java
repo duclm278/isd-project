@@ -30,7 +30,8 @@ public class TransactionControllerTest {
         System.out.println(transactionController.progressTransaction(transaction));
         account = accountService.findAccountByCardCode(cardCode);
         int balance_after = account.getBalance();
-        assertEquals(balance_before, balance_after+transaction.getAmount());
+        assertEquals(balance_before, balance_after+transaction.getAmount(), "the difference between before and after refund balance should be equal the amount");
+
     }
     @Test
     void testProgressTransaction2(){
@@ -52,7 +53,8 @@ public class TransactionControllerTest {
         System.out.println(transactionController.progressTransaction(transaction));
         account = accountService.findAccountByCardCode(cardCode);
         int balance_after = account.getBalance();
-        assertEquals(balance_before, balance_after - transaction.getAmount());
+        assertEquals(balance_before, balance_after - transaction.getAmount(), "the difference between before and after refund balance should be equal the amount");
+
     }
     @Test
     void testProgressTransactionError1(){
@@ -69,7 +71,7 @@ public class TransactionControllerTest {
                 "rent a bike",
                 100
         );
-        assertEquals(transactionController.progressTransaction(transaction), 1);
+        assertEquals(transactionController.progressTransaction(transaction), 1, "with non-exist cardCode, method should return 1");
     }
     @Test
     void testProgressTransactionError2(){
@@ -88,7 +90,7 @@ public class TransactionControllerTest {
                 "rent a bike",
                 10000000
         );
-        assertEquals(transactionController.progressTransaction(transaction), 2);
+        assertEquals(transactionController.progressTransaction(transaction), 2, "with insufficient balance, method should return 2");
     }
 }
 
