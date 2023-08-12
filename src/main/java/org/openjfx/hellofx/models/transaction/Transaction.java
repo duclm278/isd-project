@@ -17,4 +17,14 @@ public class Transaction {
     private String dateExpired;
     private String transactionContent;
     private int amount;
+
+    public void display(){
+        System.out.println(this.getCommand());
+        System.out.println(this.getCardCode());
+        System.out.println(this.getOwner());
+        System.out.println(this.getCvvCode());
+        System.out.println(this.getDateExpired());
+        System.out.println(this.getTransactionContent());
+    }
 }
+

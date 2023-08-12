@@ -53,7 +53,6 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable 
             String cardHolderName= cardHolderNameInput.getText();
             String cvv = CVVInput.getText();
             String exprDate = exprMonthInput.getText() + "/" + exprYearInput.getText();
-            //TODO add amount code
 
             CreditCard creditCard = new CreditCard(cardNumber,cardHolderName,cvv,exprDate);
             try {

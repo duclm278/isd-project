@@ -54,8 +54,9 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
                     this.creditCard.getCardHolderName(),
                     this.creditCard.getCvv(),
                     this.creditCard.getExprDate(),
-                    "rent a bike" + command,
+                    "rent a bike " + command,
                     deposit);
+            transaction.display();
             int result = transactionController.progressTransaction(transaction);
             System.out.println(result);
             ResultScreen resultScreen;
@@ -83,7 +84,6 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
         this.creditCard = creditCard;
     }
     public void display(CreditCard creditCard){
-
         cardHolderName.setText(creditCard.getCardHolderName());
         cardNumber.setText(creditCard.getCardNumber());
         cvv.setText(creditCard.getCvv());
@@ -94,10 +94,7 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
         cardNumber.setText(this.creditCard.getCardNumber());
         cvv.setText(this.creditCard.getCvv());
         exprDate.setText(this.creditCard.getExprDate());
-
-//        String command = this.state.get("command");
-
-//        totalBill.setText(amount);
+        totalBill.setText(this.state.get("amount") + "");
     }
 
 
