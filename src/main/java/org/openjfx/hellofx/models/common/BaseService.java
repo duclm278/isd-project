@@ -14,6 +14,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.FindOneAndReplaceOptions;
+import com.mongodb.client.model.ReturnDocument;
 import com.mongodb.client.result.InsertOneResult;
 
 import lombok.Getter;
@@ -53,7 +54,7 @@ public class BaseService<T> {
 
     public T findByIdAndReplace(ObjectId id, T object) {
         FindOneAndReplaceOptions options = new FindOneAndReplaceOptions()
-                .returnDocument(com.mongodb.client.model.ReturnDocument.AFTER);
+                .returnDocument(ReturnDocument.AFTER);
         return collection.findOneAndReplace(eq("_id", id), object, options);
     }
 

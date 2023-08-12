@@ -34,6 +34,10 @@ public class AccountControllerTest {
         assertEquals(x.get()+1, y.get(),"create successful");
         assertEquals(y.get()-1, z.get(),"create successful");
         assertEquals(z.get(), x.get(), "delete and create successful");
+    }
+
+    @Test
+    void testMakePayment(){
 
     }
 }
