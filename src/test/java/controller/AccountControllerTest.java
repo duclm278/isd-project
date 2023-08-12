@@ -18,7 +18,14 @@ public class AccountControllerTest {
         AtomicInteger y = new AtomicInteger();
         AtomicInteger z = new AtomicInteger();
 
-        Account newAccount = new Account(null,"987654321","Dat", "321", "28/12", 1000000);
+        Account newAccount = new Account(
+                null,
+                "987654321",
+                "Dat",
+                "321",
+                "28/12",
+                1000000
+        );
         AccountController accountController = new AccountController();
         AccountService accountService = new AccountService();
 
@@ -37,11 +44,16 @@ public class AccountControllerTest {
     }
 
     @Test
-    void testMakePaymentSimple(){
+    void testMakePayment(){
         int amount = 100;
         AccountController accountController = new AccountController();
         AccountService accountService = new AccountService();
-        CreditCard creditCard = new CreditCard("987654321", "Dat", "123", "28/12");
+        CreditCard creditCard = new CreditCard(
+                "987654321",
+                "Dat",
+                "123",
+                "28/12"
+        );
         Account account = accountService.findAccountByCardCode(creditCard.getCardNumber());
         int balance_before = account.getBalance();
         System.out.println(accountController.makePayment(creditCard, amount));
@@ -52,35 +64,51 @@ public class AccountControllerTest {
         account = accountService.findAccountByCardCode(creditCard.getCardNumber());
         int balance_after_refund = account.getBalance();
 
-        assertEquals(balance_before, balance_after_refund);
-        assertEquals(balance_before, balance_after_pay+amount);
+        assertEquals(balance_before, balance_after_refund, "The balance before and after pay and refund should be equal");
+        assertEquals(balance_before, balance_after_pay+amount, "The balance before pay should be greater that after pay equal to amount");
+
         accountController.resetBalance(creditCard);
     }
     @Test
     void testMakePaymentError1(){
         AccountController accountController = new AccountController();
         AccountService accountService = new AccountService();
-        CreditCard creditCard = new CreditCard("98754321", "Dat", "123", "28/12");
-        int amount = 100;
-        assertEquals(accountController.makePayment(creditCard, amount), 1);
+        CreditCard creditCard = new CreditCard(
+                "98754321",
+                "Dat",
+                "123",
+                "28/12"
+        );
+        int amount = 100; //cardNumber wrong
+        assertEquals(accountController.makePayment(creditCard, amount), 1, "if cardNumber wrong the method should return 1");
         accountController.resetBalance(creditCard);
     }
     @Test
     void testMakePaymentError2(){
         AccountController accountController = new AccountController();
         AccountService accountService = new AccountService();
-        CreditCard creditCard = new CreditCard("987654321", "Dat", "123", "28/12");
+        CreditCard creditCard = new CreditCard(
+                "987654321",
+                "Dat",
+                "123",
+                "28/12"
+        );
         int amount = 10000000; //over budget
-        assertEquals(accountController.makePayment(creditCard, amount), 2);
+        assertEquals(accountController.makePayment(creditCard, amount), 2, "if account's balance is not enough the method should return 2");
         accountController.resetBalance(creditCard);
     }
     @Test
     void testMakePaymentSuccess(){
         AccountController accountController = new AccountController();
         AccountService accountService = new AccountService();
-        CreditCard creditCard = new CreditCard("987654321", "Dat", "123", "28/12");
+        CreditCard creditCard = new CreditCard(
+                "987654321",
+                "Dat",
+                "123",
+                "28/12"
+        );
         int amount = 100;
-        assertEquals(accountController.makePayment(creditCard, amount), 0);
+        assertEquals(accountController.makePayment(creditCard, amount), 0, "the method should return 0");
         accountController.resetBalance(creditCard);
     }
 }
