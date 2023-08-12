@@ -83,10 +83,6 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
         cardNumber.setText(this.creditCard.getCardNumber());
         cvv.setText(this.creditCard.getCvv());
         exprDate.setText(this.creditCard.getExprDate());
-
-//        String command = this.state.get("command");
-
-//        totalBill.setText(amount);
     }
 
 
