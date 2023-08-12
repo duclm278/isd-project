@@ -60,6 +60,7 @@
                      </image>
                   </ImageView>
                   <Text fill="#ff5a5a" layoutX="267.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid barcode" visible="false" wrappingWidth="149.251953125" />
+                  <Text fx:id="error_message" fill="#ff0404" layoutX="288.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid" visible="false" />
                </children>
             </AnchorPane>
             <Text fill="#479be4" layoutX="66.0" layoutY="34.0" stroke="#479be4" strokeType="OUTSIDE" strokeWidth="0.0" text="EcoBike">

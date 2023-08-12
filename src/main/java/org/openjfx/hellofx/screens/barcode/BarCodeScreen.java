@@ -14,9 +14,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import org.openjfx.hellofx.models.bike7.Bike;
+import org.openjfx.hellofx.controllers.BikeController;
+import org.openjfx.hellofx.controllers.DockingController;
+import org.openjfx.hellofx.models.bike.Bike;
+import org.openjfx.hellofx.models.docking.Docking;
 import org.openjfx.hellofx.screens.ScreensStateHandler;
 import org.openjfx.hellofx.screens.home.HomeScreen;
 import org.openjfx.hellofx.screens.rent.RentScreen;
@@ -37,6 +41,8 @@ public class BarCodeScreen extends ScreensStateHandler implements Initializable 
     private Button rent_btn;
     @FXML
     private ImageView home_btn;
+    @FXML
+    private Text error_message;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -44,14 +50,24 @@ public class BarCodeScreen extends ScreensStateHandler implements Initializable 
         rent_btn.setOnMouseClicked(event -> {
             RentScreen rent_screen;
             try {
-                Bike bike = new Bike();
-                HashMap<String, Object> bike_details = bike.getBikeByBarCode(bike.dictionary, "X0S@aaa");
-                if (bike_details != null) {
-                    this.setState("bike_details", bike_details);
-                    rent_screen = new RentScreen(this.stage, Configs.SECOND_PATH);
-                    rent_screen.show();
+                String inputValue = title.getText();
+                BikeController bikeController = new BikeController();
+                Bike bike = bikeController.findByBarcode(inputValue);
+                DockingController dockingController = new DockingController();
+                Docking docking = dockingController.findByBikeBarcode(inputValue);
+                BarCodeDisplayer error = new BarCodeDisplayer();
+                if (bike == null) {
+                    error.displayErrorMessage(error_message);
                 } else {
-                    System.out.println("DATA NULL");
+                    if (docking == null){
+                        error.displayBikeIsRented(error_message);
+                    }
+                    else{
+                        this.setState("bike_details", bike);
+                        rent_screen = new RentScreen(this.stage, Configs.SECOND_PATH);
+                        rent_screen.show();
+                    }
+
                 }
 
             } catch (IOException e) {

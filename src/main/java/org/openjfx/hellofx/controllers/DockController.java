@@ -34,6 +34,9 @@ public class DockController {
     }
 
     public List<Dock> findByNameOrAddress(String query) {
+        if(query==""){
+            return dockService.find();
+        }
         return dockService.findByNameOrAddress(query);
     }
 

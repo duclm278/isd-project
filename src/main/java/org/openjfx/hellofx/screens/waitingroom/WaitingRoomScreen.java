@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.models.bike.Bike;
 import org.openjfx.hellofx.models.bike7.StandardBike;
 import org.openjfx.hellofx.models.bike7.StandardE_Bike;
 import org.openjfx.hellofx.models.bike7.TwinBike;
@@ -12,6 +13,7 @@ import org.openjfx.hellofx.models.bike7.TypeOfBike;
 import org.openjfx.hellofx.models.timer.Time;
 import org.openjfx.hellofx.screens.ScreensStateHandler;
 import org.openjfx.hellofx.screens.payment.PaymentScreen;
+import org.openjfx.hellofx.screens.returnbike.ReturnScreen;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -38,7 +40,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
     @FXML
     private Text total_pay;
     @FXML
-    private Button pause_timer;
+    private Button pause_timer, return_btn;
     @FXML
     private Button hiden_btn;
     @FXML
@@ -49,13 +51,13 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
     private ListView<String> list_view_bike_details;
     @FXML
     private Button back_btn;
-
+    private int total;
     Timeline timeline = new Timeline(
             new KeyFrame(Duration.seconds(1),
                     e -> {
                         this.time.oneSecondPassed();
                         timer.setText(this.time.getCurrentTime());
-
+                        this.total = this.bike.calculateTotal(this.time.getTotalMinute());
                         total_pay
                                 .setText(Integer.toString(this.bike.calculateTotal(this.time.getTotalMinute())) + " đ");
                     }));
@@ -65,14 +67,14 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
         this.stage = stage;
         // StackPane subsceneRoot = (StackPane) subscence_test.getRoot();
         // subsceneRoot.getChildren().add(vbox_test);
-        int bike_type = (int) ((HashMap<String, Object>) this.state.get("bike_details")).get("type");
-        if (bike_type == 1) {
+        String bike_type = (String) ((Bike) this.state.get("bike_details")).type;
+        if (bike_type == "N1") {
             this.bike = new StandardBike();
         }
-        if (bike_type == 2) {
+        if (bike_type == "E1") {
             this.bike = new StandardE_Bike();
         }
-        if (bike_type == 3) {
+        if (bike_type == "N2") {
             this.bike = new TwinBike();
         }
         System.out.println(bike_type);
@@ -83,6 +85,28 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        return_btn.setOnMouseClicked(event -> {
+            ReturnScreen returnbike;
+            try {
+
+                if(((int)this.state.get("deposit")-this.total)>0){
+                    this.setState("command", "refund");
+                    this.setState("amount", (int)this.state.get("deposit")-this.total);
+                    System.out.println("COMMand:"+this.state);
+                }
+                else{
+                    this.setState("command", "pay");
+                    this.setState("amount", this.total-(int)this.state.get("deposit"));
+                    System.out.println("COMMand:"+this.state);
+
+                }
+                returnbike = new ReturnScreen(this.stage, Configs.FIFTH_PATH);
+                returnbike.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
 
         pause_timer.setOnMouseClicked(event -> {
             if (timer_pause_state == false) {

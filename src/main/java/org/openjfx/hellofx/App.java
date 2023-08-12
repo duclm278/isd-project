@@ -9,6 +9,7 @@ import org.openjfx.hellofx.utils.Configs;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -21,6 +22,8 @@ public class App extends Application {
 
         Parent root;
         try {
+            Image iconImage = new Image("E:/itss_final2/isd-project/src/main/resources/org/openjfx/hellofx/image/window_img.png");
+            primaryStage.getIcons().add(iconImage);
             HomeScreen home = new HomeScreen(primaryStage, Configs.HOME_PATH);
             home.show();
         } catch (IOException e) {
@@ -30,13 +33,13 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        // launch(args);
+        launch(args);
 
         // DEMO
         // TestBike.run();
         // TestDock.run();
         // TestDocking.run();
-        TestRenting.run();
+        // TestRenting.run();
     }
 
 }

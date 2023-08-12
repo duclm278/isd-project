@@ -22,11 +22,11 @@ public class DockDetailsDisplayer {
     }
 
     public void displayDockInfo(ListView<String> list_view2, ListView<String> list_view3, String name, String address,
-            int remain_slot, int capacity, int walking_time) {
+            int remain_slot, int capacity, int walking_time, int numBikes) {
         list_view2.getItems().addAll("Dock's name:  " + name, "Address:  " + address,
                 "Walking time:  " + Integer.toString(walking_time) + " minutes");
-        list_view3.getItems().addAll("Remain slots:  " + Integer.toString(remain_slot),
-                "Available bikes:  " + Integer.toString(capacity));
+        list_view3.getItems().addAll("Capacity:  " + Integer.toString(capacity),
+                "Available bikes:  " + Integer.toString(numBikes));
     }
 
     public void displayListOfBikes(ScrollPane body_pane, List<Bike> list_bikes) {
@@ -37,7 +37,7 @@ public class DockDetailsDisplayer {
         for (int i = 0; i < list_bikes.size(); i++) {
             String img_path = "E:/ITSS_Project/ITSS_Project/isd-project/src/main/resources/org/openjfx/hellofx/image/bike1.png";
             Bike bike = list_bikes.get(i);
-            BikePane bikepane = new BikePane(bike.getType(), "111", img_path, bike.getBattery().get(), bike.getValue(),
+            BikePane bikepane = new BikePane(bike.getType(), "034A65533", img_path, bike.getBattery().get(), bike.getValue(),
                     this.stage);
             AnchorPane a = bikepane.createBikePane();
 

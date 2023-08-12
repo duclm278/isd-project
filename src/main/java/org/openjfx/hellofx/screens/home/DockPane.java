@@ -2,6 +2,7 @@ package org.openjfx.hellofx.screens.home;
 
 import java.io.IOException;
 
+import org.bson.types.ObjectId;
 import org.openjfx.hellofx.screens.dockdetails.DockDetailsScreen;
 import org.openjfx.hellofx.utils.Configs;
 
@@ -15,15 +16,18 @@ import javafx.stage.Stage;
 
 public class DockPane {
     private String name, dock_img, address;
-    private int capacity;
+    private int capacity,numBikes;
     private Stage stage;
     private Button button1;
+    private ObjectId dock_id;
 
-    public DockPane(String name, String dock_img, int capacity, String address, Stage stage) {
+    public DockPane(String name, String dock_img, int capacity, String address, Stage stage, ObjectId dock_id, int numBikes) {
         this.name = name;
         this.dock_img = dock_img;
         this.capacity = capacity;
+        this.numBikes = numBikes;
         this.address = address;
+        this.dock_id = dock_id;
         this.stage = stage;
     }
 
@@ -36,8 +40,8 @@ public class DockPane {
         Label label = new Label("Label");
         label.setText(this.name);
         ListView<String> listView = new ListView<>();
-        listView.getItems().addAll("Address:  " + this.address, "Available bikes:  " + Integer.toString(this.capacity),
-                "Empty docks:  " + Integer.toString(50 - this.capacity));
+        listView.getItems().addAll("Address:  " + this.address, "Available bikes:  " + Integer.toString(this.numBikes),
+                "Capacity:  " + Integer.toString(this.capacity));
 
         // ImageView imageView = new ImageView(new Image(this.dock_img)); // Thay thế
         // bằng đường dẫn đến hình ảnh thực tế
@@ -80,7 +84,7 @@ public class DockPane {
             try {
                 dockdetails = new DockDetailsScreen(this.stage, Configs.SIXTH_PATH);
                 dockdetails.show();
-                dockdetails.setDock(this.name, this.capacity, this.address);
+                dockdetails.setDock(this.name, this.capacity, this.address, this.dock_id, this.numBikes);
 
             } catch (IOException e) {
                 e.printStackTrace();

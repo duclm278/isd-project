@@ -2,6 +2,7 @@ package org.openjfx.hellofx.screens.rent;
 
 import java.util.HashMap;
 
+import org.openjfx.hellofx.models.bike.Bike;
 import org.openjfx.hellofx.models.bike7.TypeOfBike;
 
 import javafx.scene.control.Label;
@@ -18,16 +19,8 @@ public class RentDisplayer {
         deposit_amount.setText(Integer.toString(bike.depositAmount()) + " đ");
     }
 
-    public void displayBikeDetails(HashMap<String, Object> bike_details, ListView<String> bike_info) {
-        String[] resultArray = new String[bike_details.size()];
-        int index = 0;
-
-        for (String key : bike_details.keySet()) {
-            Object value = bike_details.get(key);
-            resultArray[index] = key + ": " + value;
-            index++;
-        }
-        bike_info.getItems().addAll(resultArray);
+    public void displayBikeDetails(Bike bike_details, ListView<String> bike_info) {
+        bike_info.getItems().addAll("Barcode: "+bike_details.barcode,"Battery: "+bike_details.battery, "Type: "+bike_details.type);
     }
 
 }

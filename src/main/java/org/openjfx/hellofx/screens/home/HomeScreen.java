@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.controllers.DockController;
 import org.openjfx.hellofx.models.dock.Dock;
 import org.openjfx.hellofx.screens.ScreensStateHandler;
 import org.openjfx.hellofx.screens.barcode.BarCodeScreen;
@@ -43,19 +44,24 @@ public class HomeScreen extends ScreensStateHandler implements Initializable {
         this.stage = stage;
 
         this.homedisplayer = new HomeDisplayer(this.stage);
-        List<Dock> dockList = new ArrayList<>();
-        Dock dock1 = new Dock(new ObjectId(), "Hoan Kiem", "So 3 Hoan Kiem", 22, 0, 0.0, 0.0);
-        Dock dock2 = new Dock(new ObjectId(), "Long Bien", "So 10 Nguyen Van Cu", 22, 0, 0.0, 0.0);
-        Dock dock3 = new Dock(new ObjectId(), "Thanh Xuan", "So 2 Truong Chinh", 22, 0, 0.0, 0.0);
-
-        dockList.add(dock1);
-        dockList.add(dock2);
-        dockList.add(dock3);
-        homedisplayer.displayListOfDocks(body_pane, dockList);
+        // List<Dock> dockList = new ArrayList<>();
+        // Dock dock1 = new Dock(new ObjectId(), "Hoan Kiem", "So 3 Hoan Kiem", 22, 0, 0.0, 0.0);
+        // Dock dock2 = new Dock(new ObjectId(), "Long Bien", "So 10 Nguyen Van Cu", 22, 0, 0.0, 0.0);
+        // Dock dock3 = new Dock(new ObjectId(), "Thanh Xuan", "So 2 Truong Chinh", 22, 0, 0.0, 0.0);
+        // dockList.add(dock1);
+        // dockList.add(dock2);
+        // dockList.add(dock3);
+        DockController dockcontroller = new DockController();
+        homedisplayer.displayListOfDocks(body_pane, dockcontroller);
+        search_btn.setOnMouseClicked(event -> {
+            String search_text = search_bar.getText();
+            homedisplayer.displayListOfDocksByQuery(body_pane, dockcontroller,search_text);
+        });
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
 
         rent_bike_btn.setOnMouseClicked(event -> {
             BarCodeScreen barcode;

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Dock {
-    private ObjectId id;
+    public ObjectId id;
     private String name;
     private String address;
     private int capacity;

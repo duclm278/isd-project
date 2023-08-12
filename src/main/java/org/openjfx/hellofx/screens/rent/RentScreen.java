@@ -10,14 +10,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import org.openjfx.hellofx.models.bike7.Bike;
+import org.openjfx.hellofx.models.bike.Bike;
 import org.openjfx.hellofx.models.bike7.StandardBike;
 import org.openjfx.hellofx.models.bike7.StandardE_Bike;
 import org.openjfx.hellofx.models.bike7.TwinBike;
 import org.openjfx.hellofx.models.bike7.TypeOfBike;
 import org.openjfx.hellofx.screens.ScreensStateHandler;
+import org.openjfx.hellofx.screens.home.HomeScreen;
 import org.openjfx.hellofx.screens.payment.PaymentScreen;
 import org.openjfx.hellofx.utils.Configs;
 
@@ -29,6 +31,8 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
     TypeOfBike bike = new StandardE_Bike();
     @FXML
     private Button pay_now;
+    @FXML
+    private ImageView home_btn;
 
     @FXML
     private Label deposit_amount;
@@ -44,10 +48,10 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
         this.stage = stage;
         RentDisplayer rentscreen = new RentDisplayer();
         System.out.println("STATE:" + this.state);
-        this.getBikeType((HashMap<String, Object>) this.state.get("bike_details"));
-        rentscreen.displayBikeDetails((HashMap<String, Object>) this.state.get("bike_details"), bike_info);
+        this.getBikeType((Bike) this.state.get("bike_details"));
+        rentscreen.displayBikeDetails((Bike) this.state.get("bike_details"), bike_info);
         rentscreen.displayPayRules(this.bike, deposit_amount, rent_rule);
-        this.setState("bikeType_object", (HashMap<String, Object>) this.state.get("bike_details"));
+        // this.setState("bikeType_object", (HashMap<String, Object>) this.state.get("bike_details"));
     }
 
     @Override
@@ -55,6 +59,10 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
         pay_now.setOnMouseClicked(event -> {
             PaymentScreen pay_screen;
             try {
+                this.setState("command", "pay");
+                this.setState("amount", this.bike.depositAmount());
+                this.setState("deposit", this.bike.depositAmount());
+                System.out.println("COMMand:"+this.state);
                 pay_screen = new PaymentScreen(this.stage, Configs.THIRD_PATH);
                 pay_screen.show();
 
@@ -62,17 +70,28 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
                 e.printStackTrace();
             }
         });
+
+        home_btn.setOnMouseClicked(event -> {
+            HomeScreen home;
+            try {
+                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    public void getBikeType(HashMap<String, Object> bike_details) {
-        String type = bike_details.get("type").toString();
-        if (type.equals("1")) {
+    public void getBikeType(Bike bike_details) {
+        String type = bike_details.type;
+        if (type.equals("N1")) {
             this.bike = new StandardBike();
         }
-        if (type.equals("2")) {
+        if (type.equals("E1")) {
             this.bike = new StandardE_Bike();
         }
-        if (type.equals("3")) {
+        if (type.equals("N2")) {
             this.bike = new TwinBike();
         }
     }
