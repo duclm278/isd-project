@@ -3,12 +3,12 @@ package org.openjfx.hellofx;
 import java.util.List;
 import java.util.Random;
 
-import org.openjfx.hellofx.models.bike.Bike;
-import org.openjfx.hellofx.models.bike.BikeService;
-import org.openjfx.hellofx.models.dock.Dock;
-import org.openjfx.hellofx.models.dock.DockService;
-import org.openjfx.hellofx.models.docking.Docking;
-import org.openjfx.hellofx.models.docking.DockingService;
+import org.openjfx.hellofx.model.bike.Bike;
+import org.openjfx.hellofx.model.bike.BikeService;
+import org.openjfx.hellofx.model.dock.Dock;
+import org.openjfx.hellofx.model.dock.DockService;
+import org.openjfx.hellofx.model.docking.Docking;
+import org.openjfx.hellofx.model.docking.DockingService;
 
 public class TestDocking {
     public static void run() {

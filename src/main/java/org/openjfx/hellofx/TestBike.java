@@ -3,8 +3,8 @@ package org.openjfx.hellofx;
 import java.util.List;
 import java.util.Optional;
 
-import org.openjfx.hellofx.models.bike.Bike;
-import org.openjfx.hellofx.models.bike.BikeService;
+import org.openjfx.hellofx.model.bike.Bike;
+import org.openjfx.hellofx.model.bike.BikeService;
 
 public class TestBike {
     public static void run() {

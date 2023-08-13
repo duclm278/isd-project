@@ -29,11 +29,12 @@
                   </Text>
                </children>
             </Pane>
+            <Button fx:id="return_btn" layoutX="505.0" layoutY="283.0" mnemonicParsing="false" text="Return Now" />
          </children>
       </AnchorPane>
       <ImageView fx:id="brand_img" fitHeight="35.0" fitWidth="52.0" layoutX="30.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="E:/newITSSprj/isd-project/src/main/resources/org/openjfx/hellofx/image/brand_img.png" />
+            <Image url="@image/brand_img.png" />
          </image>
       </ImageView>
       <Text fill="#479be4" layoutX="74.0" layoutY="36.0" stroke="#479be4" strokeType="OUTSIDE" strokeWidth="0.0" text="EcoBike">

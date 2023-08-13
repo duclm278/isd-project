@@ -1,7 +1,7 @@
 package org.openjfx.hellofx;
 
-import org.openjfx.hellofx.models.dock.Dock;
-import org.openjfx.hellofx.models.dock.DockService;
+import org.openjfx.hellofx.model.dock.Dock;
+import org.openjfx.hellofx.model.dock.DockService;
 
 import com.mongodb.client.model.Filters;
 

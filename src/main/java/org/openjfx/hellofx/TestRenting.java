@@ -3,12 +3,12 @@ package org.openjfx.hellofx;
 import java.util.List;
 import java.util.Random;
 
-import org.openjfx.hellofx.models.dock.Dock;
-import org.openjfx.hellofx.models.dock.DockService;
-import org.openjfx.hellofx.models.docking.Docking;
-import org.openjfx.hellofx.models.docking.DockingService;
-import org.openjfx.hellofx.models.renting.Renting;
-import org.openjfx.hellofx.models.renting.RentingService;
+import org.openjfx.hellofx.model.dock.Dock;
+import org.openjfx.hellofx.model.dock.DockService;
+import org.openjfx.hellofx.model.docking.Docking;
+import org.openjfx.hellofx.model.docking.DockingService;
+import org.openjfx.hellofx.model.renting.Renting;
+import org.openjfx.hellofx.model.renting.RentingService;
 
 public class TestRenting {
     public static void run() {
