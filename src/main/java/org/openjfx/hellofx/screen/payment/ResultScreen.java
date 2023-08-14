@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
+import org.openjfx.hellofx.screen.waitingroom.WaitingRoomScreen;
 import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
@@ -42,10 +43,10 @@ public class ResultScreen extends ScreensStateHandler implements Initializable {
             }
         });
         redirect_btn.setOnMouseClicked(event -> {
-            HomeScreen home;
+            WaitingRoomScreen waitingRoomScreen;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
-                home.show();
+                waitingRoomScreen = new WaitingRoomScreen(this.stage, Configs.FOURTH_PATH);
+                waitingRoomScreen.show();
 
             } catch (IOException e) {
                 e.printStackTrace();

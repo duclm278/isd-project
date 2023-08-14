@@ -16,4 +16,5 @@ public class Renting {
     private ObjectId bikeId;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private LocalDateTime totalTime;
 }
