@@ -13,7 +13,7 @@
    <children>
       <ImageView fx:id="brand_img" fitHeight="35.0" fitWidth="52.0" layoutX="34.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="E:/backend_ITSS/isd-project/src/main/resources/org/openjfx/hellofx/image/brand_img.png" />
+            <Image url="@image/brand_img.png" />
          </image>
       </ImageView>
       <AnchorPane layoutY="66.0" prefHeight="333.0" prefWidth="600.0" style="-fx-border-color: black;">
@@ -37,9 +37,9 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <ImageView fx:id="home_img" fitHeight="41.0" fitWidth="44.0" layoutX="514.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="home_btn" fitHeight="41.0" fitWidth="44.0" layoutX="514.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="E:/newITSSprj/isd-project/src/main/resources/org/openjfx/hellofx/image/home_img.png" />
+            <Image url="@image/home_img.png" />
          </image>
       </ImageView>
       <ImageView fx:id="brand_img1" fitHeight="35.0" fitWidth="52.0" layoutX="32.0" layoutY="326.0" pickOnBounds="true" preserveRatio="true">
