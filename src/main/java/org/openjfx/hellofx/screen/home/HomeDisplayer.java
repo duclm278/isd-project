@@ -20,8 +20,8 @@ public class HomeDisplayer {
         this.stage = stage;
     }
 
-    public void displayListOfDocks(ScrollPane body_pane, DockController dockcontroller) {
-        List<Dock> list_dock = dockcontroller.find();
+    public void displayListOfDocks(ScrollPane body_pane, DockController dockController) {
+        List<Dock> list_dock = dockController.find();
 
         body_pane.setContent(null);
 
@@ -35,11 +35,11 @@ public class HomeDisplayer {
         contentGridPane.setVgap(20); // Set vertical gap between AnchorPanes
         contentGridPane.setPadding(new Insets(5));
         for (int i = 0; i < list_dock.size(); i++) {
-            String img_path = "/home/duc/Pictures/Wallpapers/09.jpg";
+            String img_path = "org/openjfx/hellofx/image/bike1.png";
             Dock dock = list_dock.get(i);
-            DockPane dockpane = new DockPane(dock.getName(), img_path, dock.getCapacity(), dock.getAddress(),
+            DockPane dockPane = new DockPane(dock.getName(), img_path, dock.getCapacity(), dock.getAddress(),
                     this.stage, dock.id, dock.getNumBikes());
-            AnchorPane a = dockpane.createDockPane();
+            AnchorPane a = dockPane.createDockPane();
 
             int row = i / 2;
             int col = i % 2;
@@ -57,8 +57,8 @@ public class HomeDisplayer {
         body_pane.setContent(anchorPane);
     }
 
-    public void displayListOfDocksByQuery(ScrollPane body_pane, DockController dockcontroller, String query) {
-        List<Dock> list_dock = dockcontroller.findByNameOrAddress(query);
+    public void displayListOfDocksByQuery(ScrollPane body_pane, DockController dockController, String query) {
+        List<Dock> list_dock = dockController.findByNameOrAddress(query);
         body_pane.setContent(null);
 
         Text query_text = new Text();
@@ -71,11 +71,11 @@ public class HomeDisplayer {
         contentGridPane.setVgap(20); // Set vertical gap between AnchorPanes
         contentGridPane.setPadding(new Insets(5));
         for (int i = 0; i < list_dock.size(); i++) {
-            String img_path = "/home/duc/Pictures/Wallpapers/09.jpg";
+            String img_path = "org/openjfx/hellofx/image/bike1.png";
             Dock dock = list_dock.get(i);
-            DockPane dockpane = new DockPane(dock.getName(), img_path, dock.getCapacity(), dock.getAddress(),
+            DockPane dockPane = new DockPane(dock.getName(), img_path, dock.getCapacity(), dock.getAddress(),
                     this.stage, dock.id, dock.getNumBikes());
-            AnchorPane a = dockpane.createDockPane();
+            AnchorPane a = dockPane.createDockPane();
 
             int row = i / 2;
             int col = i % 2;

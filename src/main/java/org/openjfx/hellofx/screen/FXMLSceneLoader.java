@@ -9,12 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class FXMLScenceLoader {
+public class FXMLSceneLoader {
     public Parent root;
     protected AnchorPane content;
     protected FXMLLoader loader;
 
-    public FXMLScenceLoader(Stage stage, String screenPath) throws IOException {
+    public FXMLSceneLoader(Stage stage, String screenPath) throws IOException {
         this.loader = new FXMLLoader();
         this.loader.setController(this);
         this.loader.setLocation(App.class.getResource(screenPath));

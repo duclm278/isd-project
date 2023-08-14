@@ -6,7 +6,7 @@ import java.util.HashMap;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class ScreensStateHandler extends FXMLScenceLoader {
+public class ScreensStateHandler extends FXMLSceneLoader {
     protected final Stage stage;
     private Scene scene;
     public static HashMap<String, Object> state = new HashMap<>();
@@ -23,6 +23,6 @@ public class ScreensStateHandler extends FXMLScenceLoader {
     }
 
     public void setState(String key, Object value) {
-        this.state.put(key, value);
+        ScreensStateHandler.state.put(key, value);
     }
 }

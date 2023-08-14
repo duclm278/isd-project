@@ -32,12 +32,15 @@ public class DockDetailsDisplayer {
         contentGridPane.setVgap(20); // Set vertical gap between AnchorPanes
         contentGridPane.setPadding(new Insets(5));
         for (int i = 0; i < list_bikes.size(); i++) {
-            String img_path = "E:/ITSS_Project/ITSS_Project/isd-project/src/main/resources/org/openjfx/hellofx/image/bike1.png";
+            String img_path = "org/openjfx/hellofx/image/bike1.png";
             Bike bike = list_bikes.get(i);
-            BikePane bikepane = new BikePane(bike.getType(), "034A65533", img_path, bike.getBattery().get(),
+
+            boolean haveBattery = bike.getBattery() == null;
+            int battery = haveBattery ? -1 : bike.getBattery().get();
+            BikePane bikePane = new BikePane(bike.getType(), bike.getBarcode(), img_path, battery,
                     bike.getValue(),
                     this.stage);
-            AnchorPane a = bikepane.createBikePane();
+            AnchorPane a = bikePane.createBikePane();
 
             int row = i / 3;
             int col = i % 3;

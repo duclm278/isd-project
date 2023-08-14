@@ -4,9 +4,11 @@
   "java.maven.downloadSources": true,
   "cSpell.words": [
     "bson",
+    "Displayer",
     "dockings",
     "hellofx",
     "imdb",
+    "Initializable",
     "openjfx",
     "rawtypes",
     "rentings",

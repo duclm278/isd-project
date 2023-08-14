@@ -45,12 +45,12 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
     public RentScreen(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
-        RentDisplayer rentscreen = new RentDisplayer();
+        RentDisplayer rentScreen = new RentDisplayer();
         System.out.println("STATE:" + this.state);
         this.getBikeType((Bike) this.state.get("bike_details"));
 
-        rentscreen.displayBikeDetails((Bike) this.state.get("bike_details"), bike_info);
-        rentscreen.displayPayRules(this.bike, deposit_amount, rent_rule);
+        rentScreen.displayBikeDetails((Bike) this.state.get("bike_details"), bike_info);
+        rentScreen.displayPayRules(this.bike, deposit_amount, rent_rule);
         // this.setState("bikeType_object", (HashMap<String, Object>)
         // this.state.get("bike_details"));
     }
