@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import org.openjfx.hellofx.controller.transaction.TransactionController;
+import org.openjfx.hellofx.controller.TransactionController;
 import org.openjfx.hellofx.model.card.CreditCard;
 import org.openjfx.hellofx.model.transaction.Transaction;
 import org.openjfx.hellofx.screen.ScreensStateHandler;

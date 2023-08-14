@@ -3,8 +3,8 @@ package controller;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import org.openjfx.hellofx.controller.account.AccountController;
-import org.openjfx.hellofx.controller.transaction.TransactionController;
+import org.openjfx.hellofx.controller.AccountController;
+import org.openjfx.hellofx.controller.TransactionController;
 import org.openjfx.hellofx.model.account.Account;
 import org.openjfx.hellofx.model.account.AccountService;
 import org.openjfx.hellofx.model.transaction.Transaction;

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.jupiter.api.Test;
-import org.openjfx.hellofx.controller.account.AccountController;
+import org.openjfx.hellofx.controller.AccountController;
 import org.openjfx.hellofx.model.account.Account;
 import org.openjfx.hellofx.model.account.AccountService;
 import org.openjfx.hellofx.model.card.CreditCard;

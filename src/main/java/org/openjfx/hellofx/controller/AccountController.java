@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.controller.account;
+package org.openjfx.hellofx.controller;
 
 import java.util.Objects;
 
