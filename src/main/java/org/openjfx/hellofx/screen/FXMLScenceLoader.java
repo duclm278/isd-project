@@ -2,13 +2,12 @@ package org.openjfx.hellofx.screen;
 
 import java.io.IOException;
 
+import org.openjfx.hellofx.App;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.openjfx.hellofx.App;
-import org.openjfx.hellofx.screen.barcode.BarCodeDisplayer;
 
 public class FXMLScenceLoader {
     public Parent root;

@@ -1,7 +1,5 @@
 package org.openjfx.hellofx.controller.transaction;
 
-import com.mongodb.client.result.UpdateResult;
-
 import org.openjfx.hellofx.controller.account.AccountController;
 import org.openjfx.hellofx.model.card.CreditCard;
 import org.openjfx.hellofx.model.transaction.Transaction;

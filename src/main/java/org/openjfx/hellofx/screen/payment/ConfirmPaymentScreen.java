@@ -1,11 +1,8 @@
 package org.openjfx.hellofx.screen.payment;
 
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import org.openjfx.hellofx.controller.transaction.TransactionController;
 import org.openjfx.hellofx.model.card.CreditCard;
@@ -14,9 +11,12 @@ import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.util.Configs;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class ConfirmPaymentScreen extends ScreensStateHandler implements Initializable {
     Stage stage;

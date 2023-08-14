@@ -1,12 +1,12 @@
 package org.openjfx.hellofx.controller.account;
 
-import com.mongodb.client.result.UpdateResult;
-
 import java.util.Objects;
 
 import org.openjfx.hellofx.model.account.Account;
 import org.openjfx.hellofx.model.account.AccountService;
 import org.openjfx.hellofx.model.card.CreditCard;
+
+import com.mongodb.client.result.UpdateResult;
 
 public class AccountController {
     AccountService accountService = new AccountService();

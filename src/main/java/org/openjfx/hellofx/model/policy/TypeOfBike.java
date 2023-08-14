@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.model.bike7;
+package org.openjfx.hellofx.model.policy;
 
 public interface TypeOfBike {
     public int depositAmount();

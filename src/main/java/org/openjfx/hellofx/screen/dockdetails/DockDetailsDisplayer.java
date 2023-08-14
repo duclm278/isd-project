@@ -3,10 +3,7 @@ package org.openjfx.hellofx.screen.dockdetails;
 import java.util.List;
 
 import org.openjfx.hellofx.model.bike.Bike;
-import org.openjfx.hellofx.model.dock.Dock;
-import org.openjfx.hellofx.screen.home.DockPane;
 
-import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;

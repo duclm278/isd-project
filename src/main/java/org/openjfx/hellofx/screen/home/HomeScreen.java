@@ -2,31 +2,20 @@ package org.openjfx.hellofx.screen.home;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
-import org.bson.types.ObjectId;
 import org.openjfx.hellofx.controller.DockController;
-import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.barcode.BarCodeScreen;
-import org.openjfx.hellofx.screen.dockdetails.DockDetailsScreen;
 import org.openjfx.hellofx.screen.payment.PaymentScreen;
 import org.openjfx.hellofx.screen.returnbike.ReturnScreen;
-import org.openjfx.hellofx.screen.waitingroom.WaitingRoomScreen;
 import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class HomeScreen extends ScreensStateHandler implements Initializable {

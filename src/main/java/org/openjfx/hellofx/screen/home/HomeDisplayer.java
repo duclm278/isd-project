@@ -1,15 +1,11 @@
 package org.openjfx.hellofx.screen.home;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.openjfx.hellofx.controller.DockController;
 import org.openjfx.hellofx.model.dock.Dock;
-import org.openjfx.hellofx.screen.dockdetails.DockDetailsScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;

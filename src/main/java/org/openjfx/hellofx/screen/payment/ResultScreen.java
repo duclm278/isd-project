@@ -1,21 +1,19 @@
 package org.openjfx.hellofx.screen.payment;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import org.openjfx.hellofx.screen.ScreensStateHandler;
+import org.openjfx.hellofx.screen.home.HomeScreen;
+import org.openjfx.hellofx.util.Configs;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import org.openjfx.hellofx.controller.transaction.TransactionController;
-import org.openjfx.hellofx.model.transaction.Transaction;
-import org.openjfx.hellofx.screen.ScreensStateHandler;
-import org.openjfx.hellofx.screen.home.HomeScreen;
-import org.openjfx.hellofx.util.Configs;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ResultScreen extends ScreensStateHandler implements Initializable {
     Stage stage;

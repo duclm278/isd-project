@@ -1,9 +1,7 @@
 package org.openjfx.hellofx.screen.rent;
 
-import java.util.HashMap;
-
 import org.openjfx.hellofx.model.bike.Bike;
-import org.openjfx.hellofx.model.bike7.TypeOfBike;
+import org.openjfx.hellofx.model.policy.TypeOfBike;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;

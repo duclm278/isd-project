@@ -1,15 +1,14 @@
 package controller;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.junit.jupiter.api.Test;
 import org.openjfx.hellofx.controller.account.AccountController;
 import org.openjfx.hellofx.model.account.Account;
 import org.openjfx.hellofx.model.account.AccountService;
 import org.openjfx.hellofx.model.card.CreditCard;
-
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class AccountControllerTest {
 

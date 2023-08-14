@@ -1,8 +1,5 @@
 package org.openjfx.hellofx.screen.dockdetails;
 
-import org.bson.types.ObjectId;
-
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
