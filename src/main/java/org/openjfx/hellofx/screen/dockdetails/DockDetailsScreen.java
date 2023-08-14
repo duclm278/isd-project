@@ -2,9 +2,7 @@ package org.openjfx.hellofx.screen.dockdetails;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import org.bson.types.ObjectId;
@@ -13,7 +11,6 @@ import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.barcode.BarCodeScreen;
-import org.openjfx.hellofx.screen.home.HomeDisplayer;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.util.Configs;
 

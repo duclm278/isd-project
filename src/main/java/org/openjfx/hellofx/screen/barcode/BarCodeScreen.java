@@ -2,20 +2,7 @@ package org.openjfx.hellofx.screen.barcode;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import org.openjfx.hellofx.controller.BikeController;
 import org.openjfx.hellofx.controller.DockingController;
@@ -25,6 +12,14 @@ import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.screen.rent.RentScreen;
 import org.openjfx.hellofx.util.Configs;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class BarCodeScreen extends ScreensStateHandler implements Initializable {
     Stage stage;

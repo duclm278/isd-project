@@ -9,8 +9,8 @@ import org.openjfx.hellofx.util.Configs;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+// import javafx.scene.image.Image;
+// import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -18,7 +18,6 @@ public class DockPane {
     private String name, dock_img, address;
     private int capacity, numBikes;
     private Stage stage;
-    private Button button1;
     private ObjectId dock_id;
 
     public DockPane(String name, String dock_img, int capacity, String address, Stage stage, ObjectId dock_id,
@@ -44,10 +43,8 @@ public class DockPane {
         listView.getItems().addAll("Address:  " + this.address, "Available bikes:  " + Integer.toString(this.numBikes),
                 "Capacity:  " + Integer.toString(this.capacity));
 
-        // ImageView imageView = new ImageView(new Image(this.dock_img)); // Thay thế
-        // bằng đường dẫn đến hình ảnh thực tế
+        // ImageView imageView = new ImageView(new Image(this.dock_img));
 
-        // Đặt vị trí và kích thước cho các thành phần
         AnchorPane.setTopAnchor(button, 5.0);
         AnchorPane.setRightAnchor(button, 25.0);
 
@@ -73,7 +70,6 @@ public class DockPane {
         anchorPane.setPrefWidth(281.0);
         anchorPane.setPrefHeight(131.0);
         anchorPane.setStyle("-fx-border-color: blue; -fx-border-width: 2px;");
-        // Thêm các thành phần vào AnchorPane
         // anchorPane.getChildren().addAll(button, label, listView, imageView);
         anchorPane.getChildren().addAll(button, label, listView);
         return anchorPane;
@@ -81,11 +77,11 @@ public class DockPane {
 
     public void addListenerToViewButton(Button button) {
         button.setOnMouseClicked(event -> {
-            DockDetailsScreen dockdetails;
+            DockDetailsScreen dockDetails;
             try {
-                dockdetails = new DockDetailsScreen(this.stage, Configs.SIXTH_PATH);
-                dockdetails.show();
-                dockdetails.setDock(this.name, this.capacity, this.address, this.dock_id, this.numBikes);
+                dockDetails = new DockDetailsScreen(this.stage, Configs.SIXTH_PATH);
+                dockDetails.show();
+                dockDetails.setDock(this.name, this.capacity, this.address, this.dock_id, this.numBikes);
 
             } catch (IOException e) {
                 e.printStackTrace();

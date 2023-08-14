@@ -1,8 +1,8 @@
-package org.openjfx.hellofx.model.bike7;
+package org.openjfx.hellofx.model.policy;
 
-public class TwinBike implements TypeOfBike {
+public class StandardE_Bike implements TypeOfBike {
     public int depositAmount() {
-        return 550000;
+        return 700000;
     };
 
     public int first30minAmount() {

@@ -1,9 +1,10 @@
 package org.openjfx.hellofx.model.account;
 
+import org.bson.types.ObjectId;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
 
 @Data
 @AllArgsConstructor

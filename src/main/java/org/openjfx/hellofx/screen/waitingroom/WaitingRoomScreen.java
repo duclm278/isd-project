@@ -2,17 +2,15 @@ package org.openjfx.hellofx.screen.waitingroom;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 import org.openjfx.hellofx.model.bike.Bike;
-import org.openjfx.hellofx.model.bike7.StandardBike;
-import org.openjfx.hellofx.model.bike7.StandardE_Bike;
-import org.openjfx.hellofx.model.bike7.TwinBike;
-import org.openjfx.hellofx.model.bike7.TypeOfBike;
+import org.openjfx.hellofx.model.policy.StandardBike;
+import org.openjfx.hellofx.model.policy.StandardE_Bike;
+import org.openjfx.hellofx.model.policy.TwinBike;
+import org.openjfx.hellofx.model.policy.TypeOfBike;
 import org.openjfx.hellofx.model.timer.Time;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
-import org.openjfx.hellofx.screen.payment.PaymentScreen;
 import org.openjfx.hellofx.screen.returnbike.ReturnScreen;
 import org.openjfx.hellofx.util.Configs;
 
@@ -20,11 +18,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;

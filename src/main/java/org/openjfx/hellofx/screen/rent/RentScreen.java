@@ -2,8 +2,17 @@ package org.openjfx.hellofx.screen.rent;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.ResourceBundle;
+
+import org.openjfx.hellofx.model.bike.Bike;
+import org.openjfx.hellofx.model.policy.StandardBike;
+import org.openjfx.hellofx.model.policy.StandardE_Bike;
+import org.openjfx.hellofx.model.policy.TwinBike;
+import org.openjfx.hellofx.model.policy.TypeOfBike;
+import org.openjfx.hellofx.screen.ScreensStateHandler;
+import org.openjfx.hellofx.screen.home.HomeScreen;
+import org.openjfx.hellofx.screen.payment.PaymentScreen;
+import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,16 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
-import org.openjfx.hellofx.model.bike.Bike;
-import org.openjfx.hellofx.model.bike7.StandardBike;
-import org.openjfx.hellofx.model.bike7.StandardE_Bike;
-import org.openjfx.hellofx.model.bike7.TwinBike;
-import org.openjfx.hellofx.model.bike7.TypeOfBike;
-import org.openjfx.hellofx.screen.ScreensStateHandler;
-import org.openjfx.hellofx.screen.home.HomeScreen;
-import org.openjfx.hellofx.screen.payment.PaymentScreen;
-import org.openjfx.hellofx.util.Configs;
 
 public class RentScreen extends ScreensStateHandler implements Initializable {
     Stage stage;
@@ -46,12 +45,12 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
     public RentScreen(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
-        RentDisplayer rentscreen = new RentDisplayer();
+        RentDisplayer rentScreen = new RentDisplayer();
         System.out.println("STATE:" + this.state);
         this.getBikeType((Bike) this.state.get("bike_details"));
 
-        rentscreen.displayBikeDetails((Bike) this.state.get("bike_details"), bike_info);
-        rentscreen.displayPayRules(this.bike, deposit_amount, rent_rule);
+        rentScreen.displayBikeDetails((Bike) this.state.get("bike_details"), bike_info);
+        rentScreen.displayPayRules(this.bike, deposit_amount, rent_rule);
         // this.setState("bikeType_object", (HashMap<String, Object>)
         // this.state.get("bike_details"));
     }

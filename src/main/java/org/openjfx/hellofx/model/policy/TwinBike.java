@@ -1,16 +1,16 @@
-package org.openjfx.hellofx.model.bike7;
+package org.openjfx.hellofx.model.policy;
 
-public class StandardBike implements TypeOfBike {
+public class TwinBike implements TypeOfBike {
     public int depositAmount() {
-        return 400000;
+        return 550000;
     };
 
     public int first30minAmount() {
-        return 10000;
+        return 15000;
     };
 
     public int after30minAmount() {
-        return 3000;
+        return 4500;
     };
 
     public int calculateTotal(int time) {
@@ -22,5 +22,4 @@ public class StandardBike implements TypeOfBike {
             return this.first30minAmount();
         }
     };
-
 }
