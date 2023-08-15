@@ -26,7 +26,7 @@
       </Text>
       <AnchorPane layoutX="-4.0" layoutY="64.0" prefHeight="335.0" prefWidth="607.0" style="-fx-border-color: black;">
          <children>
-            <Button fx:id="redirect_btn" layoutX="274.0" layoutY="272.0" mnemonicParsing="false" text="Back to home" />
+            <Button fx:id="redirect_btn" layoutX="274.0" layoutY="272.0" mnemonicParsing="false" text="View renting status" />
             <Text fx:id="resultMessage" layoutX="174.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Succesfully" textAlignment="CENTER" wrappingWidth="287.3999938964844">
                <font>
                   <Font name="System Bold" size="20.0" />

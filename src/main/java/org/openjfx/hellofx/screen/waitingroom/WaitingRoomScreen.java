@@ -2,6 +2,8 @@ package org.openjfx.hellofx.screen.waitingroom;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import org.openjfx.hellofx.model.bike.Bike;
@@ -74,6 +76,12 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
             this.bike = new TwinBike();
         }
         System.out.println(bike_type);
+
+        LocalDateTime currentTime = LocalDateTime.now(); // Định dạng chuỗi thời gian
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd");
+        String formattedTime = currentTime.format(formatter);
+        this.setState("start_time", formattedTime);
+
         timer.setText(this.time.getCurrentTime());
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
@@ -95,6 +103,18 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
                     System.out.println("COMMand:" + this.state);
 
                 }
+
+                // End time
+                LocalDateTime currentTime = LocalDateTime.now(); // Định dạng chuỗi thời gian
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss yyyy-MM-dd");
+                String formattedTime = currentTime.format(formatter);
+                this.setState("end_time", formattedTime);
+
+                // Total rent time
+                this.setState("rent_time", this.time.getCurrentTime());
+                System.out.println("STATE:" + this.state.get("rent_time"));
+
+                this.setState(formattedTime, arg1);
                 returnbike = new ReturnScreen(this.stage, Configs.FIFTH_PATH);
                 returnbike.show();
 
