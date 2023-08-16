@@ -116,6 +116,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
 
                 this.setState(formattedTime, arg1);
                 returnbike = new ReturnScreen(this.stage, Configs.FIFTH_PATH);
+                returnbike.display();
                 returnbike.show();
 
             } catch (IOException e) {

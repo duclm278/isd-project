@@ -42,9 +42,9 @@ public class RentingService extends BaseService<Renting> {
         if (docking == null) {
             return null;
         }
-
-        Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(), null, null);
-        return save(renting);
+//        Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(), null);
+//        return save(renting);
+        return  null;
     }
 
     public Renting rentBike(String bikeId) {

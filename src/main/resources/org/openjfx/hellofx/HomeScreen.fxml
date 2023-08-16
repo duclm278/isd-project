@@ -23,7 +23,6 @@
       </Text>
       <Button fx:id="return_btn" layoutX="508.0" layoutY="18.0" mnemonicParsing="false" text="Return bike" />
       <Button fx:id="rent_bike_btn" layoutX="432.0" layoutY="19.0" mnemonicParsing="false" text="Rent Bike" />
-      <Button fx:id="payment_btn" layoutX="362.0" layoutY="18.0" mnemonicParsing="false" text="Payment" />
       <TextField fx:id="search_bar" layoutX="148.0" layoutY="19.0" promptText="Search bar" />
       <Button fx:id="search_btn" layoutX="297.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Search" />
       <ScrollPane fx:id="body_pane" layoutY="65.0" prefHeight="336.0" prefWidth="615.0" style="-fx-border-color: black;" />
