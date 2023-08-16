@@ -54,6 +54,10 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable 
             String cvv = CVVInput.getText();
             String exprDate = exprMonthInput.getText() + "/" + exprYearInput.getText();
 
+            this.setState("cardNumber", cardNumber);
+            this.setState("cardHolderName", cardHolderName);
+            this.setState("cvv", cvv);
+            this.setState("exprDate", exprDate);
             CreditCard creditCard = new CreditCard(cardNumber, cardHolderName, cvv, exprDate);
             try {
                 confirm_payment_screen = new ConfirmPaymentScreen(this.stage, Configs.SEVENTH_PATH);

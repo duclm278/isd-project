@@ -22,7 +22,7 @@ public class HomeScreen extends ScreensStateHandler implements Initializable {
     Stage stage;
     HomeDisplayer homedisplayer;
     @FXML
-    private Button return_btn, rent_bike_btn, payment_btn, search_btn, view_bike_btn1, view_bike_btn2;
+    private Button return_btn, rent_bike_btn, search_btn, view_bike_btn1, view_bike_btn2;
     @FXML
     private TextField search_bar;
     @FXML
@@ -65,16 +65,16 @@ public class HomeScreen extends ScreensStateHandler implements Initializable {
             }
         });
 
-        payment_btn.setOnMouseClicked(event -> {
-            PaymentScreen payment;
-            try {
-                payment = new PaymentScreen(this.stage, Configs.THIRD_PATH);
-                payment.show();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+//        payment_btn.setOnMouseClicked(event -> {
+//            PaymentScreen payment;
+//            try {
+//                payment = new PaymentScreen(this.stage, Configs.THIRD_PATH);
+//                payment.show();
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
 
         return_btn.setOnMouseClicked(event -> {
             ReturnScreen returnbike;
