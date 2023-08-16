@@ -14,8 +14,8 @@
       <AnchorPane layoutY="59.0" prefHeight="341.0" prefWidth="600.0" style="-fx-border-color: black;">
          <children>
             <Button fx:id="hiden_btn" layoutX="26.0" layoutY="283.0" mnemonicParsing="false" text="Hide subscene" />
-            <Button fx:id="pause_timer" layoutX="239.0" layoutY="132.0" mnemonicParsing="false" text="Lock the bicycle" />
-            <Text fx:id="total_pay" layoutX="168.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0 đ" textAlignment="CENTER" wrappingWidth="222.41336059570312">
+            <Button fx:id="pause_timer" layoutX="239.0" layoutY="132.0" mnemonicParsing="false" text="Lock bicycle" />
+            <Text fx:id="total_pay" layoutX="168.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0đ" textAlignment="CENTER" wrappingWidth="222.41336059570312">
                <font>
                   <Font size="38.0" />
                </font>
