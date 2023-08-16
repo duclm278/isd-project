@@ -28,7 +28,7 @@ public class BikePane {
         label.setText(this.barcode);
         ListView<String> listView = new ListView<>();
         listView.getItems().addAll("Bike type:  " + this.type, "Price:  " + Integer.toString(this.price),
-                "Remain battery:  " + Integer.toString(this.battery) + "%");
+                this.battery >= 0 ? "Remain battery:  " + Integer.toString(this.battery) + "%" : "No battery");
 
         ImageView imageView = new ImageView(new Image(this.bike_img));
 

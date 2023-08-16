@@ -29,7 +29,7 @@
          <children>
             <Button fx:id="confirm_cardInfo" layoutX="283.0" layoutY="270.0" mnemonicParsing="false" text="Confirm" />
             <TextField fx:id="cardHolderNameInput" layoutX="133.0" layoutY="29.0" />
-            <Text layoutX="23.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Holder Name" />
+            <Text layoutX="23.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Holder Name" />
             <TextField fx:id="cardNumberInput" layoutX="133.0" layoutY="63.0" />
             <Text layoutX="23.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number" />
             <TextField fx:id="CVVInput" layoutX="133.0" layoutY="105.0" />
@@ -40,7 +40,7 @@
             <TextField fx:id="exprYearInput" layoutX="190.0" layoutY="142.0" prefHeight="26.0" prefWidth="35.0" />
          </children>
       </AnchorPane>
-      <Text layoutX="153.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please Enter creditCard information">
+      <Text layoutX="153.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter creditCard info">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

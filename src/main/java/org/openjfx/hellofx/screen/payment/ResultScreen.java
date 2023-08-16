@@ -58,7 +58,7 @@ public class ResultScreen extends ScreensStateHandler implements Initializable {
         if (statusTransactionCode == 0) {
             resultMessage.setText("Payment Successfully");
         } else if (statusTransactionCode == 1) {
-            resultMessage.setText("Your card information is not correct");
+            resultMessage.setText("Your card information is incorrect");
             redirect_btn.setText("Back to card information");
             redirect_btn.setOnMouseClicked(event -> {
                 PaymentScreen paymentScreen;
