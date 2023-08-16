@@ -62,7 +62,7 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
             ResultScreen resultScreen;
             try {
                 resultScreen = new ResultScreen(this.stage, Configs.EIGHTH_PATH);
-                resultScreen.display(result);
+                resultScreen.display(result, "home");
                 resultScreen.show();
             } catch (IOException e) {
                 e.printStackTrace();

@@ -54,7 +54,32 @@ public class ResultScreen extends ScreensStateHandler implements Initializable {
         });
     }
 
-    public void display(int statusTransactionCode) {
+    public void display(int statusTransactionCode, String redirect) {
+        if(redirect.equals("return bike")){
+            redirect_btn.setText("Go to Rent Bike");
+            redirect_btn.setOnMouseClicked(event -> {
+                WaitingRoomScreen waitingRoomScreen;
+                try {
+                    waitingRoomScreen = new WaitingRoomScreen(this.stage, Configs.FOURTH_PATH);
+                    waitingRoomScreen.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        } else if (redirect.equals("home")) {
+            redirect_btn.setText("Back Home");
+            redirect_btn.setOnMouseClicked(event -> {
+                HomeScreen home;
+                try {
+                    home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                    home.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
         if (statusTransactionCode == 0) {
             resultMessage.setText("Payment Successfully");
         } else if (statusTransactionCode == 1) {

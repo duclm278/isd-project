@@ -64,7 +64,7 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
             ResultScreen resultScreen;
             try {
                 resultScreen = new ResultScreen(this.stage, Configs.EIGHTH_PATH);
-                resultScreen.display(result);
+                resultScreen.display(result, "return bike");
                 resultScreen.show();
             } catch (IOException e) {
                 e.printStackTrace();
