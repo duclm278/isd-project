@@ -57,7 +57,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
                         timer.setText(this.time.getCurrentTime());
                         this.total = this.bike.calculateTotal(this.time.getTotalMinute());
                         total_pay
-                                .setText(Integer.toString(this.bike.calculateTotal(this.time.getTotalMinute())) + " đ");
+                                .setText(Integer.toString(this.bike.calculateTotal(this.time.getTotalMinute())) + "đ");
                     }));
 
     public WaitingRoomScreen(Stage stage, String screenPath) throws IOException {
