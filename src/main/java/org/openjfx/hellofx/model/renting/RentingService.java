@@ -43,7 +43,7 @@ public class RentingService extends BaseService<Renting> {
             return null;
         }
 
-        Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(), null);
+        Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(), null, null);
         return save(renting);
     }
 
