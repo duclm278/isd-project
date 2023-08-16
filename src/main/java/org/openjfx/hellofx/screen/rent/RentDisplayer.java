@@ -11,10 +11,10 @@ public class RentDisplayer {
     }
 
     public void displayPayRules(TypeOfBike bike, Label deposit_amount, ListView<String> rent_rule) {
-        String[] rule = { "First 10 mins: free", "First 30 mins: " + bike.first30minAmount() + " đ",
+        String[] rule = { "First 10 mins: free", "First 30 mins: " + bike.first30minAmount() + "đ",
                 "After 30 mins: " + bike.after30minAmount() + "đ each 15 mins" };
         rent_rule.getItems().addAll(rule);
-        deposit_amount.setText(Integer.toString(bike.depositAmount()) + " đ");
+        deposit_amount.setText(Integer.toString(bike.depositAmount()) + "đ");
     }
 
     public void displayBikeDetails(Bike bike_details, ListView<String> bike_info) {
