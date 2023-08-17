@@ -13,6 +13,7 @@ import org.openjfx.hellofx.model.policy.TwinBike;
 import org.openjfx.hellofx.model.policy.TypeOfBike;
 import org.openjfx.hellofx.model.timer.Time;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
+import org.openjfx.hellofx.screen.payment.ReturnBikePaymentScreen;
 import org.openjfx.hellofx.screen.returnbike.ReturnScreen;
 import org.openjfx.hellofx.util.Configs;
 

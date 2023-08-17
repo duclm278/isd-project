@@ -61,10 +61,10 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
             transaction.display();
             int result = transactionController.progressTransaction(transaction);
             System.out.println(result);
-            ResultScreen resultScreen;
+            DepositResultScreen resultScreen;
             try {
-                resultScreen = new ResultScreen(this.stage, Configs.EIGHTH_PATH);
-                resultScreen.display(result, "return bike");
+                resultScreen = new DepositResultScreen(this.stage, Configs.EIGHTH_PATH);
+                resultScreen.display(result);
                 resultScreen.show();
             } catch (IOException e) {
                 e.printStackTrace();

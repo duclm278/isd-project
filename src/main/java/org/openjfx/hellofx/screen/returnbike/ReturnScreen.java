@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import com.mongodb.client.MongoCollection;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
@@ -19,6 +18,7 @@ import org.openjfx.hellofx.model.transaction.Transaction;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.screen.payment.ResultScreen;
+import org.openjfx.hellofx.screen.payment.ReturnBikePaymentScreen;
 import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
@@ -76,10 +76,10 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
             transaction.display();
             int result = transactionController.progressTransaction(transaction);
             System.out.println(result);
-            ResultScreen resultScreen;
+            ReturnBikePaymentScreen resultScreen;
             try {
-                resultScreen = new ResultScreen(this.stage, Configs.EIGHTH_PATH);
-                resultScreen.display(result, "home");
+                resultScreen = new ReturnBikePaymentScreen(this.stage, Configs.EIGHTH_PATH);
+                resultScreen.display(result);
                 resultScreen.show();
 
                 new RentingController().rentBike(selectedDockID);
