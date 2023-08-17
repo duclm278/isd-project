@@ -97,6 +97,16 @@ public class ResultScreen extends ScreensStateHandler implements Initializable {
             });
         } else if (statusTransactionCode == 2) {
             resultMessage.setText("Your account's balance is not enough");
+            redirect_btn.setOnMouseClicked(event -> {
+                PaymentScreen paymentScreen;
+                try {
+                    paymentScreen = new PaymentScreen(this.stage, Configs.THIRD_PATH);
+                    paymentScreen.show();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
         } else {
             resultMessage.setText("Something Error!!");
         }

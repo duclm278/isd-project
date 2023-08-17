@@ -14,7 +14,7 @@
          <children>
             <ListView fx:id="bike_info" layoutX="151.0" layoutY="21.0" prefHeight="247.0" prefWidth="215.0" />
             <Button fx:id="submitBtn" layoutX="171.0" layoutY="281.0" mnemonicParsing="false" text="Submit" />
-            <Button fx:id="choose_dock" layoutX="246.0" layoutY="281.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="chooseDockBtn" layoutX="246.0" layoutY="281.0" mnemonicParsing="false" text="Choose Dock" />
             <ImageView fitHeight="85.0" fitWidth="104.0" layoutX="14.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@image/bike3.png" />
@@ -49,11 +49,15 @@
             </Text>
             <Text fx:id="exprDate" layoutX="423.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card's owner" />
             <Text layoutX="171.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rent Time" />
-            <Text fx:id="rentTime" layoutX="236.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="rentTime" layoutX="247.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
             <Text layoutX="171.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit" />
             <Text fx:id="command" layoutX="171.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Pay" />
-            <Text fx:id="deposit" layoutX="236.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-            <Text fx:id="amount" layoutX="236.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="deposit" layoutX="247.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="amount" layoutX="247.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+            <Text fx:id="command1" layoutX="173.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dock return" />
+            <Text fx:id="choosedDock" layoutX="247.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="None" />
+            <ListView fx:id="listDock" layoutX="153.0" layoutY="19.0" prefHeight="247.0" prefWidth="231.0" />
+            <Button fx:id="viewBillBtn" layoutX="246.0" layoutY="281.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="86.0" text="View Bill" />
          </children>
       </AnchorPane>
       <Text fill="#479be4" layoutX="84.0" layoutY="46.0" stroke="#479be4" strokeType="OUTSIDE" strokeWidth="0.0" text="EcoBike">

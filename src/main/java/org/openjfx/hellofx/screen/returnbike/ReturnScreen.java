@@ -2,11 +2,19 @@ package org.openjfx.hellofx.screen.returnbike;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import com.mongodb.client.MongoCollection;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+import org.openjfx.hellofx.controller.DockController;
+import org.openjfx.hellofx.controller.RentingController;
 import org.openjfx.hellofx.controller.TransactionController;
+import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.model.transaction.Transaction;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
@@ -37,7 +45,12 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
     @FXML
     private Text command;
     @FXML
-    private Text amount;
+    private Text amount, choosedDock;
+    @FXML
+    private ListView listDock;
+    @FXML
+    private Button chooseDockBtn, viewBillBtn;
+    String selectedDockID;
     public ReturnScreen(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
@@ -45,7 +58,11 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        viewBillBtn.setVisible(false);
+        displayListOfDocks();
+        listDock.setVisible(false);
         submitBtn.setOnMouseClicked(event -> {
+            this.setState("Dock name", choosedDock.getText());
             TransactionController transactionController = new TransactionController();
             Transaction transaction = new Transaction(
                     null,
@@ -64,16 +81,28 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
                 resultScreen = new ResultScreen(this.stage, Configs.EIGHTH_PATH);
                 resultScreen.display(result, "home");
                 resultScreen.show();
+
+                new RentingController().rentBike(selectedDockID);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+        chooseDockBtn.setOnMouseClicked(event -> {
+            listDock.setVisible(true);
+            chooseDockBtn.setVisible(false);
+            viewBillBtn.setVisible(true);
+        });
+        viewBillBtn.setOnMouseClicked(event -> {
+            viewBillBtn.setVisible(false);
+            chooseDockBtn.setVisible(true);
+            listDock.setVisible(false);
+        });
+
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
                 home = new HomeScreen(this.stage, Configs.HOME_PATH);
                 home.show();
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -91,4 +120,24 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
         deposit.setText(this.state.get("deposit")+"");
     }
 
+    public void displayListOfDocks(){
+        DockController dockController = new DockController();
+        List<Dock> docks = dockController.find();
+        for(Dock dock : docks) {
+            listDock.getItems().add(dock.getName());
+        }
+        listDock.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                String temp = listDock.getSelectionModel().getSelectedItems().toString();
+                for(Dock dock : docks) {
+                    if(temp.equals(dock.getName())){
+                        selectedDockID = dock.getId().toString();
+                        break;
+                    };
+                }
+                choosedDock.setText(temp);
+            }
+        });
+    }
 }
