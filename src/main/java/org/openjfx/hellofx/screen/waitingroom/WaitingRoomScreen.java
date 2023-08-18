@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import org.openjfx.hellofx.model.bike.Bike;
@@ -30,7 +31,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class WaitingRoomScreen extends ScreensStateHandler implements Initializable {
-    Time time = new Time("0:20:0");
+    
     Stage stage;
     TypeOfBike bike = new StandardE_Bike();
     boolean timer_pause_state = false;
@@ -51,6 +52,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
     @FXML
     private Button back_btn;
     private int total;
+    Time time = new Time("0:20:0");
     Timeline timeline = new Timeline(
             new KeyFrame(Duration.seconds(1),
                     e -> {
@@ -86,6 +88,12 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
         timer.setText(this.time.getCurrentTime());
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
+        Bike bike_details = (Bike) this.state.get("bike_details");
+        int battery = bike_details.battery.orElse(null);
+        String batteryString = Objects.isNull(battery) ? "No battery" : battery + "%";
+        list_view_bike_details.getItems().addAll("Barcode: " + bike_details.barcode, "Battery: " + batteryString,
+                "Type: " + bike_details.type, "Start time: " +(String) this.state.get("start_time"));
     }
 
     @Override
@@ -147,4 +155,5 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
 
         });
     }
+
 }

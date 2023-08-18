@@ -70,16 +70,16 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
                 e.printStackTrace();
             }
         });
-        home_btn.setOnMouseClicked(event -> {
-            HomeScreen home;
-            try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
-                home.show();
+        // home_btn.setOnMouseClicked(event -> {
+        //     HomeScreen home;
+        //     try {
+        //         home = new HomeScreen(this.stage, Configs.HOME_PATH);
+        //         home.show();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
+        // });
     }
 
     public void setCreditCard(CreditCard creditCard) {

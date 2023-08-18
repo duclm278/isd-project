@@ -69,15 +69,15 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable 
             }
         });
 
-        home_btn.setOnMouseClicked(event -> {
-            HomeScreen home;
-            try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
-                home.show();
+        // home_btn.setOnMouseClicked(event -> {
+        //     HomeScreen home;
+        //     try {
+        //         home = new HomeScreen(this.stage, Configs.HOME_PATH);
+        //         home.show();
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
+        // });
     }
 }

@@ -21,7 +21,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Text>
-      <Button fx:id="return_btn" layoutX="508.0" layoutY="18.0" mnemonicParsing="false" text="Return bike" />
+      <!-- <Button fx:id="return_btn" layoutX="508.0" layoutY="18.0" mnemonicParsing="false" text="Return bike" /> -->
       <Button fx:id="rent_bike_btn" layoutX="432.0" layoutY="19.0" mnemonicParsing="false" text="Rent Bike" />
       <TextField fx:id="search_bar" layoutX="148.0" layoutY="19.0" promptText="Search bar" />
       <Button fx:id="search_btn" layoutX="297.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="51.0" text="Search" />

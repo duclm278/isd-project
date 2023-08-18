@@ -9,11 +9,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="home_btn" fitHeight="41.0" fitWidth="44.0" layoutX="527.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <!-- <ImageView fx:id="home_btn" fitHeight="41.0" fitWidth="44.0" layoutX="527.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/home_img.png" />
          </image>
-      </ImageView>
+      </ImageView> -->
       <ImageView fx:id="brand_img" fitHeight="35.0" fitWidth="52.0" layoutX="22.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/brand_img.png" />
