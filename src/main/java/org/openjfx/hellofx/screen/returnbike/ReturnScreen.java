@@ -51,6 +51,7 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
     @FXML
     private Button chooseDockBtn, viewBillBtn;
     String selectedDockID;
+
     public ReturnScreen(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
         this.stage = stage;
@@ -64,14 +65,16 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
         listDock.setVisible(false);
         submitBtn.setOnMouseClicked(event -> {
             this.setState("Dock name", choosedDock.getText());
+            this.setState("Dock id", selectedDockID);
+            System.out.println(this.state.get("Dock name") + " " + this.state.get("Dock id"));
             TransactionController transactionController = new TransactionController();
             Transaction transaction = new Transaction(
                     null,
-                    this.state.get("command")+"",
-                    this.state.get("cardNumber")+"",
-                    this.state.get("cardHolderName")+"",
-                    this.state.get("cvv")+"",
-                    this.state.get("exprDate")+"",
+                    this.state.get("command") + "",
+                    this.state.get("cardNumber") + "",
+                    this.state.get("cardHolderName") + "",
+                    this.state.get("cvv") + "",
+                    this.state.get("exprDate") + "",
                     "rent a bike " + this.state.get("command"),
                     (int) this.state.get("amount"));
             transaction.display();
@@ -82,8 +85,6 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
                 resultScreen = new ReturnBikePaymentScreen(this.stage, Configs.EIGHTH_PATH);
                 resultScreen.display(result);
                 resultScreen.show();
-
-                new RentingController().rentBike(selectedDockID);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -111,36 +112,44 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
 
     }
 
-    public void display(){
-        cardHolderName.setText(this.state.get("cardHolderName")+"");
-        cardNumber.setText(this.state.get("cardNumber")+"");
-        exprDate.setText(this.state.get("exprDate")+"");
-        command.setText(this.state.get("command")+"");
-        amount.setText(this.state.get("amount")+"");
-        rentTime.setText(this.state.get("rent_time")+"");
-        deposit.setText(this.state.get("deposit")+"");
+    public void display() {
+        cardHolderName.setText(this.state.get("cardHolderName") + "");
+        cardNumber.setText(this.state.get("cardNumber") + "");
+        exprDate.setText(this.state.get("exprDate") + "");
+        command.setText(this.state.get("command") + "");
+        amount.setText(this.state.get("amount") + "");
+        rentTime.setText(this.state.get("rent_time") + "");
+        deposit.setText(this.state.get("deposit") + "");
     }
 
-    public void displayListOfDocks(){
+    public void displayListOfDocks() {
         DockController dockController = new DockController();
         List<Dock> docks = dockController.find();
-        for(Dock dock : docks) {
-            if(dock.getCapacity() - dock.getNumBikes() > 0){
+        for (Dock dock : docks) {
+            if (dock.getCapacity() - dock.getNumBikes() > 0) {
                 listDock.getItems().add(dock.getName());
             }
         }
         listDock.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                String temp = listDock.getSelectionModel().getSelectedItems().toString();
-                for(Dock dock : docks) {
-                    if(temp.equals(dock.getName())){
+                String temp = listDock.getSelectionModel().getSelectedItems().get(0).toString();
+
+                // Debug
+                DockController dockController = new DockController();
+                List<Dock> docks = dockController.find();
+
+                for (Dock dock : docks) {
+                    System.out.println("temp: " + temp + " dock name: " + dock.getName());
+                    if (temp.equals(dock.getName())) {
                         selectedDockID = dock.getId().toString();
+                        System.out.println("selected dock id: " + selectedDockID);
                         break;
-                    };
+                    }
+                    ;
                 }
                 choosedDock.setText(temp);
-                if(submitBtn.isVisible() == false){
+                if (submitBtn.isVisible() == false) {
                     submitBtn.setVisible(true);
                 }
 
