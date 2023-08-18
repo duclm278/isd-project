@@ -58,6 +58,7 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        submitBtn.setVisible(false);
         viewBillBtn.setVisible(false);
         displayListOfDocks();
         listDock.setVisible(false);
@@ -124,7 +125,9 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
         DockController dockController = new DockController();
         List<Dock> docks = dockController.find();
         for(Dock dock : docks) {
-            listDock.getItems().add(dock.getName());
+            if(dock.getCapacity() - dock.getNumBikes() > 0){
+                listDock.getItems().add(dock.getName());
+            }
         }
         listDock.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -137,6 +140,10 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
                     };
                 }
                 choosedDock.setText(temp);
+                if(submitBtn.isVisible() == false){
+                    submitBtn.setVisible(true);
+                }
+
             }
         });
     }
