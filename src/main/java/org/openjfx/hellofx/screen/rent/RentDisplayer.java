@@ -1,5 +1,7 @@
 package org.openjfx.hellofx.screen.rent;
 
+import java.util.Objects;
+
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.policy.TypeOfBike;
 
@@ -18,7 +20,10 @@ public class RentDisplayer {
     }
 
     public void displayBikeDetails(Bike bike_details, ListView<String> bike_info) {
-        bike_info.getItems().addAll("Barcode: " + bike_details.barcode, "Battery: " + bike_details.battery,
+        int battery = bike_details.battery.orElse(null);
+        String batteryString = Objects.isNull(battery) ? "No battery" : battery + "%";
+
+        bike_info.getItems().addAll("Barcode: " + bike_details.barcode, "Battery: " + batteryString,
                 "Type: " + bike_details.type);
     }
 
