@@ -1,7 +1,5 @@
 package org.openjfx.hellofx.model.renting;
 
-import static com.mongodb.client.model.Filters.eq;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,19 +10,21 @@ import org.openjfx.hellofx.model.docking.DockingService;
 
 import com.mongodb.client.ClientSession;
 import com.mongodb.client.TransactionBody;
+import com.mongodb.client.model.Filters;
 
 public class RentingService extends BaseService<Renting> {
     public RentingService() {
         super("rentings", Renting.class);
     }
 
-    public Renting findByBikeId(ObjectId bikeId) {
-        List<Renting> rentings = find(eq("bikeId", bikeId));
+    public Renting findUnfinishedByBikeId(ObjectId bikeId) {
+        List<Renting> rentings = find(
+                Filters.and(Filters.eq("bikeId", bikeId), Filters.eq("endTime", null)));
         return rentings.size() > 0 ? rentings.get(0) : null;
     }
 
-    public Renting findByBikeId(String bikeId) {
-        return findByBikeId(new ObjectId(bikeId));
+    public Renting findUnfinishedByBikeId(String bikeId) {
+        return findUnfinishedByBikeId(new ObjectId(bikeId));
     }
 
     public Renting findByBikeBarcode(String barcode) {
@@ -33,7 +33,7 @@ public class RentingService extends BaseService<Renting> {
         if (docking == null) {
             return null;
         }
-        return findByBikeId(docking.getBikeId());
+        return findUnfinishedByBikeId(docking.getBikeId());
     }
 
     public Renting rentBike(ObjectId bikeId) {
@@ -42,9 +42,10 @@ public class RentingService extends BaseService<Renting> {
         if (docking == null) {
             return null;
         }
-//        Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(), null);
-//        return save(renting);
-        return  null;
+        Renting renting = new Renting(new ObjectId(), bikeId, LocalDateTime.now(),
+                null, null);
+        return save(renting);
+        // return null;
     }
 
     public Renting rentBike(String bikeId) {
@@ -56,7 +57,7 @@ public class RentingService extends BaseService<Renting> {
 
         TransactionBody<Renting> txnBody = new TransactionBody<>() {
             public Renting execute() {
-                Renting renting = findByBikeId(bikeId);
+                Renting renting = findUnfinishedByBikeId(bikeId);
                 if (renting == null) {
                     return null;
                 }

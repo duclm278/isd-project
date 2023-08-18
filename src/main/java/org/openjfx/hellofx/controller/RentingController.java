@@ -19,12 +19,12 @@ public class RentingController {
         return result;
     }
 
-    public Renting findByBikeId(ObjectId bikeId) {
-        return rentingService.findByBikeId(bikeId);
+    public Renting findUnfinishedByBikeId(ObjectId bikeId) {
+        return rentingService.findUnfinishedByBikeId(bikeId);
     }
 
-    public Renting findByBikeId(String bikeId) {
-        return findByBikeId(new ObjectId(bikeId));
+    public Renting findUnfinishedByBikeId(String bikeId) {
+        return findUnfinishedByBikeId(new ObjectId(bikeId));
     }
 
     public Renting findByBikeBarcode(String barcode) {
