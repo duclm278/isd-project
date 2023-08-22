@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.model.card.CreditCard;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -60,7 +60,7 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable 
             this.setState("exprDate", exprDate);
             CreditCard creditCard = new CreditCard(cardNumber, cardHolderName, cvv, exprDate);
             try {
-                confirm_payment_screen = new ConfirmPaymentScreen(this.stage, Configs.SEVENTH_PATH);
+                confirm_payment_screen = new ConfirmPaymentScreen(this.stage, Screens.SEVENTH_PATH);
                 confirm_payment_screen.setCreditCard(creditCard);
                 confirm_payment_screen.display();
                 confirm_payment_screen.show();
@@ -72,7 +72,7 @@ public class PaymentScreen extends ScreensStateHandler implements Initializable 
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home = new HomeScreen(this.stage, Screens.HOME_PATH);
                 home.show();
 
             } catch (IOException e) {

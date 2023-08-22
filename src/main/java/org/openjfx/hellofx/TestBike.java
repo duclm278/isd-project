@@ -5,11 +5,12 @@ import java.util.Optional;
 
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.bike.BikeService;
+import org.openjfx.hellofx.model.bike.IBikeService;
 
 public class TestBike {
     public static void run() {
         // Bike: find
-        BikeService bikeService = new BikeService();
+        IBikeService bikeService = new BikeService();
         System.out.println("All bikes:");
         List<Bike> bikes = bikeService.find();
         bikes.forEach(bike -> System.out.println(bike + "\n"));

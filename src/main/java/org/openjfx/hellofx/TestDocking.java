@@ -9,16 +9,18 @@ import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.model.dock.DockService;
 import org.openjfx.hellofx.model.docking.Docking;
 import org.openjfx.hellofx.model.docking.DockingService;
+import org.openjfx.hellofx.model.docking.IDockingService;
 
 public class TestDocking {
     public static void run() {
-        DockingService dockingService = new DockingService();
+        IDockingService dockingService = new DockingService();
 
         List<Bike> bikes = new BikeService().find();
         List<Dock> docks = new DockService().find();
 
         System.out.println("Deleting all dockings:");
-        dockingService.find().forEach(docking -> System.out.println(dockingService.findByIdAndDelete(docking.getId())));
+        dockingService.find()
+                .forEach(docking -> System.out.println(dockingService.findByBikeIdAndDelete(docking.getBikeId())));
 
         // Assigning bikes to random docks, take capacity into account
         System.out.println("Assigning bikes to random docks:");

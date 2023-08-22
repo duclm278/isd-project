@@ -1,9 +1,6 @@
-package org.openjfx.hellofx.util;
+package org.openjfx.hellofx.config;
 
-public class Configs {
-    public static final String MONGO_URI = "mongodb+srv://admin:admin@cluster0.rni4rdu.mongodb.net/";
-    public static final String MONGO_DATABASE = "test";
-
+public class Screens {
     public static final String HOME_PATH = "HomeScreen.fxml";
     public static final String FIRST_PATH = "BarCodeScreen.fxml";
     public static final String SECOND_PATH = "RentScreen.fxml";

@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.screen.waitingroom.WaitingRoomScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

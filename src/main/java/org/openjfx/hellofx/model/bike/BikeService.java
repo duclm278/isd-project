@@ -1,15 +1,24 @@
 package org.openjfx.hellofx.model.bike;
 
-import static com.mongodb.client.model.Filters.eq;
+import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.openjfx.hellofx.model.common.BaseService;
+import org.openjfx.hellofx.repository.bike.BikeRepository;
+import org.openjfx.hellofx.repository.bike.IBikeRepository;
 
-public class BikeService extends BaseService<Bike> {
+public class BikeService extends BaseService<Bike, ObjectId> implements IBikeService {
+    private IBikeRepository bikeRepository;
+
     public BikeService() {
-        super("bikes", Bike.class);
+        super(new BikeRepository());
+        bikeRepository = (IBikeRepository) getRepository();
     }
 
+    // Implement extra specifications if needed
+    @Override
     public Bike findByBarcode(String barcode) {
-        return getCollection().find(eq("barcode", barcode)).first();
+        List<Bike> bikes = bikeRepository.findByField("barcode", String.class, barcode);
+        return bikes.size() > 0 ? bikes.get(0) : null;
     }
 }

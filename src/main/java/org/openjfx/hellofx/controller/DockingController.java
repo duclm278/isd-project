@@ -6,9 +6,10 @@ import org.bson.types.ObjectId;
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.docking.Docking;
 import org.openjfx.hellofx.model.docking.DockingService;
+import org.openjfx.hellofx.model.docking.IDockingService;
 
 public class DockingController {
-    private DockingService dockingService;
+    private IDockingService dockingService;
 
     public DockingController() {
         dockingService = new DockingService();
@@ -30,16 +31,8 @@ public class DockingController {
         return dockingService.findById(id);
     }
 
-    public Docking findById(String id) {
-        return findById(new ObjectId(id));
-    }
-
     public Docking findByBikeId(ObjectId bikeId) {
         return dockingService.findByBikeId(bikeId);
-    }
-
-    public Docking findByBikeId(String bikeId) {
-        return findByBikeId(new ObjectId(bikeId));
     }
 
     public Docking findByBikeBarcode(String barcode) {
@@ -54,20 +47,12 @@ public class DockingController {
         return result;
     }
 
-    public Docking update(String id, Docking docking) {
-        return update(new ObjectId(id), docking);
-    }
-
     public Docking delete(ObjectId id) {
-        Docking result = dockingService.findByIdAndReplace(id, null);
+        Docking result = dockingService.findByIdAndDelete(id);
         if (result == null) {
             throw new RuntimeException("Failed to delete docking status");
         }
         return result;
-    }
-
-    public Docking delete(String id) {
-        return delete(new ObjectId(id));
     }
 
     public Docking deleteByBikeId(ObjectId bikeId) {
@@ -78,15 +63,7 @@ public class DockingController {
         return result;
     }
 
-    public Docking deleteByBikeId(String bikeId) {
-        return deleteByBikeId(new ObjectId(bikeId));
-    }
-
     public List<Bike> findBikesByDockId(ObjectId dockId) {
         return dockingService.findBikesByDockId(dockId);
-    }
-
-    public List<Bike> findBikesByDockId(String dockId) {
-        return findBikesByDockId(new ObjectId(dockId));
     }
 }

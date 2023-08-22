@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.policy.StandardBike;
 import org.openjfx.hellofx.model.policy.StandardE_Bike;
@@ -12,7 +13,6 @@ import org.openjfx.hellofx.model.policy.TypeOfBike;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.screen.payment.PaymentScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -64,7 +64,7 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
                 this.setState("amount", this.bike.depositAmount());
                 this.setState("deposit", this.bike.depositAmount());
                 System.out.println("command:" + this.state.get("command"));
-                pay_screen = new PaymentScreen(this.stage, Configs.THIRD_PATH);
+                pay_screen = new PaymentScreen(this.stage, Screens.THIRD_PATH);
                 pay_screen.show();
 
             } catch (IOException e) {
@@ -75,7 +75,7 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home = new HomeScreen(this.stage, Screens.HOME_PATH);
                 home.show();
 
             } catch (IOException e) {

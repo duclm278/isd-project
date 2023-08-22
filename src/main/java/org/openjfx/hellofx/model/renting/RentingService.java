@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.common.BaseService;
+import org.openjfx.hellofx.model.common.OldService;
 import org.openjfx.hellofx.model.docking.Docking;
 import org.openjfx.hellofx.model.docking.DockingService;
 
@@ -12,7 +12,7 @@ import com.mongodb.client.ClientSession;
 import com.mongodb.client.TransactionBody;
 import com.mongodb.client.model.Filters;
 
-public class RentingService extends BaseService<Renting> {
+public class RentingService extends OldService<Renting> {
     public RentingService() {
         super("rentings", Renting.class);
     }

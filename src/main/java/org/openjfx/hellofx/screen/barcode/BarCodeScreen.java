@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.controller.BikeController;
 import org.openjfx.hellofx.controller.DockingController;
 import org.openjfx.hellofx.model.bike.Bike;
@@ -11,7 +12,6 @@ import org.openjfx.hellofx.model.docking.Docking;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.screen.rent.RentScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -58,7 +58,7 @@ public class BarCodeScreen extends ScreensStateHandler implements Initializable 
                         error.displayBikeIsRented(error_message);
                     } else {
                         this.setState("bike_details", bike);
-                        rent_screen = new RentScreen(this.stage, Configs.SECOND_PATH);
+                        rent_screen = new RentScreen(this.stage, Screens.SECOND_PATH);
                         rent_screen.show();
                     }
 
@@ -72,7 +72,7 @@ public class BarCodeScreen extends ScreensStateHandler implements Initializable 
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home = new HomeScreen(this.stage, Screens.HOME_PATH);
                 home.show();
 
             } catch (IOException e) {

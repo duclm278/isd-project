@@ -1,8 +1,8 @@
 package org.openjfx.hellofx.model.transaction;
 
-import org.openjfx.hellofx.model.common.BaseService;
+import org.openjfx.hellofx.model.common.OldService;
 
-public class TransactionService extends BaseService<Transaction> {
+public class TransactionService extends OldService<Transaction> {
     public TransactionService() {
         super("transactions", Transaction.class);
     }

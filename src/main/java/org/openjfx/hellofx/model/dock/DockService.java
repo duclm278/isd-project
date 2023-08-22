@@ -4,20 +4,24 @@ import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.openjfx.hellofx.model.common.BaseService;
+import org.openjfx.hellofx.repository.dock.DockRepository;
+import org.openjfx.hellofx.repository.dock.IDockRepository;
 
-import com.mongodb.client.model.Filters;
+public class DockService extends BaseService<Dock, ObjectId> implements IDockService {
+    private IDockRepository dockRepository;
 
-public class DockService extends BaseService<Dock> {
     public DockService() {
-        super("docks", Dock.class);
+        super(new DockRepository());
+        dockRepository = (IDockRepository) getRepository();
     }
 
+    // Implement extra specifications if needed
+    @Override
     public List<Dock> findByNameOrAddress(String query) {
-        return find(Filters.or(
-                Filters.regex("name", query, "i"),
-                Filters.regex("address", query, "i")));
+        return dockRepository.findByNameOrAddress(query);
     }
 
+    @Override
     public Dock findByIdAndIncrementNumBikes(ObjectId id) {
         Dock dock = findById(id);
         if (dock == null) {
@@ -31,6 +35,7 @@ public class DockService extends BaseService<Dock> {
         return findByIdAndReplace(id, dock);
     }
 
+    @Override
     public Dock findByIdAndDecrementNumBikes(ObjectId id) {
         Dock dock = findById(id);
         if (dock == null) {

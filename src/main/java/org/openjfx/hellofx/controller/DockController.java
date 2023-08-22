@@ -5,9 +5,10 @@ import java.util.List;
 import org.bson.types.ObjectId;
 import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.model.dock.DockService;
+import org.openjfx.hellofx.model.dock.IDockService;
 
 public class DockController {
-    private DockService dockService;
+    private IDockService dockService;
 
     public DockController() {
         dockService = new DockService();
@@ -29,10 +30,6 @@ public class DockController {
         return dockService.findById(id);
     }
 
-    public Dock findById(String id) {
-        return findById(new ObjectId(id));
-    }
-
     public List<Dock> findByNameOrAddress(String query) {
         if (query == "") {
             return dockService.find();
@@ -48,19 +45,11 @@ public class DockController {
         return result;
     }
 
-    public Dock update(String id, Dock dock) {
-        return update(new ObjectId(id), dock);
-    }
-
     public Dock delete(ObjectId id) {
         Dock result = dockService.findByIdAndReplace(id, null);
         if (result == null) {
             throw new RuntimeException("Failed to delete dock");
         }
         return result;
-    }
-
-    public Dock delete(String id) {
-        return delete(new ObjectId(id));
     }
 }

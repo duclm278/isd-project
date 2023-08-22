@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.controller.DockController;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.barcode.BarCodeScreen;
 import org.openjfx.hellofx.screen.payment.PaymentScreen;
 import org.openjfx.hellofx.screen.returnbike.ReturnScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,7 +57,7 @@ public class HomeScreen extends ScreensStateHandler implements Initializable {
         rent_bike_btn.setOnMouseClicked(event -> {
             BarCodeScreen barcode;
             try {
-                barcode = new BarCodeScreen(this.stage, Configs.FIRST_PATH);
+                barcode = new BarCodeScreen(this.stage, Screens.FIRST_PATH);
                 barcode.show();
 
             } catch (IOException e) {
@@ -65,21 +65,21 @@ public class HomeScreen extends ScreensStateHandler implements Initializable {
             }
         });
 
-//        payment_btn.setOnMouseClicked(event -> {
-//            PaymentScreen payment;
-//            try {
-//                payment = new PaymentScreen(this.stage, Configs.THIRD_PATH);
-//                payment.show();
-//
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
+        // payment_btn.setOnMouseClicked(event -> {
+        // PaymentScreen payment;
+        // try {
+        // payment = new PaymentScreen(this.stage, Configs.THIRD_PATH);
+        // payment.show();
+        //
+        // } catch (IOException e) {
+        // e.printStackTrace();
+        // }
+        // });
 
         return_btn.setOnMouseClicked(event -> {
             ReturnScreen returnbike;
             try {
-                returnbike = new ReturnScreen(this.stage, Configs.FIFTH_PATH);
+                returnbike = new ReturnScreen(this.stage, Screens.FIFTH_PATH);
                 returnbike.show();
 
             } catch (IOException e) {

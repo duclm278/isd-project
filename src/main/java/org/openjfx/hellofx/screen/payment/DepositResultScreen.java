@@ -2,12 +2,12 @@ package org.openjfx.hellofx.screen.payment;
 
 import javafx.stage.Stage;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.controller.RentingController;
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.screen.rent.RentScreen;
 import org.openjfx.hellofx.screen.waitingroom.WaitingRoomScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import java.io.IOException;
 import java.net.URL;
@@ -25,7 +25,7 @@ public class DepositResultScreen extends ResultScreen {
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home = new HomeScreen(this.stage, Screens.HOME_PATH);
                 home.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -34,7 +34,7 @@ public class DepositResultScreen extends ResultScreen {
         redirect_btn.setOnMouseClicked(event -> {
             WaitingRoomScreen waitingRoomScreen;
             try {
-                waitingRoomScreen = new WaitingRoomScreen(this.stage, Configs.FOURTH_PATH);
+                waitingRoomScreen = new WaitingRoomScreen(this.stage, Screens.FOURTH_PATH);
                 waitingRoomScreen.show();
 
             } catch (IOException e) {
@@ -48,7 +48,7 @@ public class DepositResultScreen extends ResultScreen {
         redirect_btn.setOnMouseClicked(event -> {
             WaitingRoomScreen waitingRoomScreen;
             try {
-                waitingRoomScreen = new WaitingRoomScreen(this.stage, Configs.FOURTH_PATH);
+                waitingRoomScreen = new WaitingRoomScreen(this.stage, Screens.FOURTH_PATH);
                 waitingRoomScreen.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -64,7 +64,7 @@ public class DepositResultScreen extends ResultScreen {
             redirect_btn.setOnMouseClicked(event -> {
                 PaymentScreen paymentScreen;
                 try {
-                    paymentScreen = new PaymentScreen(this.stage, Configs.THIRD_PATH);
+                    paymentScreen = new PaymentScreen(this.stage, Screens.THIRD_PATH);
                     paymentScreen.show();
 
                 } catch (IOException e) {
@@ -76,7 +76,7 @@ public class DepositResultScreen extends ResultScreen {
             redirect_btn.setOnMouseClicked(event -> {
                 PaymentScreen paymentScreen;
                 try {
-                    paymentScreen = new PaymentScreen(this.stage, Configs.THIRD_PATH);
+                    paymentScreen = new PaymentScreen(this.stage, Screens.THIRD_PATH);
                     paymentScreen.show();
 
                 } catch (IOException e) {

@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.db;
+package org.openjfx.hellofx.repository.mongo;
 
 import java.util.Optional;
 

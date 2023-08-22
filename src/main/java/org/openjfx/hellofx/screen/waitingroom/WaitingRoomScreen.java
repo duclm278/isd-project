@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.policy.StandardBike;
 import org.openjfx.hellofx.model.policy.StandardE_Bike;
@@ -15,7 +16,6 @@ import org.openjfx.hellofx.model.timer.Time;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.payment.ReturnBikePaymentScreen;
 import org.openjfx.hellofx.screen.returnbike.ReturnScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -116,7 +116,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
                 System.out.println("STATE:" + this.state.get("rent_time"));
 
                 this.setState(formattedTime, arg1);
-                returnbike = new ReturnScreen(this.stage, Configs.FIFTH_PATH);
+                returnbike = new ReturnScreen(this.stage, Screens.FIFTH_PATH);
                 returnbike.display();
                 returnbike.show();
 

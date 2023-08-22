@@ -2,11 +2,11 @@ package org.openjfx.hellofx.model.account;
 
 import static com.mongodb.client.model.Filters.eq;
 
-import org.openjfx.hellofx.model.common.BaseService;
+import org.openjfx.hellofx.model.common.OldService;
 
 import com.mongodb.client.result.UpdateResult;
 
-public class AccountService extends BaseService<Account> {
+public class AccountService extends OldService<Account> {
     public AccountService() {
         super("accounts", Account.class);
     }

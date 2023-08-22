@@ -10,6 +10,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
+
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.controller.DockController;
 import org.openjfx.hellofx.controller.RentingController;
 import org.openjfx.hellofx.controller.TransactionController;
@@ -19,7 +21,6 @@ import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
 import org.openjfx.hellofx.screen.payment.ResultScreen;
 import org.openjfx.hellofx.screen.payment.ReturnBikePaymentScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -82,7 +83,7 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
             System.out.println(result);
             ReturnBikePaymentScreen resultScreen;
             try {
-                resultScreen = new ReturnBikePaymentScreen(this.stage, Configs.EIGHTH_PATH);
+                resultScreen = new ReturnBikePaymentScreen(this.stage, Screens.EIGHTH_PATH);
                 resultScreen.display(result);
                 resultScreen.show();
             } catch (IOException e) {
@@ -103,7 +104,7 @@ public class ReturnScreen extends ScreensStateHandler implements Initializable {
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home = new HomeScreen(this.stage, Screens.HOME_PATH);
                 home.show();
             } catch (IOException e) {
                 e.printStackTrace();

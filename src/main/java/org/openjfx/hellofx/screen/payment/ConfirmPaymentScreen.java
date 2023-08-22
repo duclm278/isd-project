@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.controller.TransactionController;
 import org.openjfx.hellofx.model.card.CreditCard;
 import org.openjfx.hellofx.model.transaction.Transaction;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.home.HomeScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -63,7 +63,7 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
             System.out.println(result);
             DepositResultScreen resultScreen;
             try {
-                resultScreen = new DepositResultScreen(this.stage, Configs.EIGHTH_PATH);
+                resultScreen = new DepositResultScreen(this.stage, Screens.EIGHTH_PATH);
                 resultScreen.display(result);
                 resultScreen.show();
             } catch (IOException e) {
@@ -73,7 +73,7 @@ public class ConfirmPaymentScreen extends ScreensStateHandler implements Initial
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home = new HomeScreen(this.stage, Screens.HOME_PATH);
                 home.show();
 
             } catch (IOException e) {

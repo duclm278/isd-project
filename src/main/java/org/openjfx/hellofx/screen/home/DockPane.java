@@ -3,8 +3,8 @@ package org.openjfx.hellofx.screen.home;
 import java.io.IOException;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.screen.dockdetails.DockDetailsScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -79,7 +79,7 @@ public class DockPane {
         button.setOnMouseClicked(event -> {
             DockDetailsScreen dockDetails;
             try {
-                dockDetails = new DockDetailsScreen(this.stage, Configs.SIXTH_PATH);
+                dockDetails = new DockDetailsScreen(this.stage, Screens.SIXTH_PATH);
                 dockDetails.show();
                 dockDetails.setDock(this.name, this.capacity, this.address, this.dock_id, this.numBikes);
 

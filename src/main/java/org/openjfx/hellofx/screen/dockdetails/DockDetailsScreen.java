@@ -6,13 +6,13 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.controller.DockingController;
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
 import org.openjfx.hellofx.screen.barcode.BarCodeScreen;
 import org.openjfx.hellofx.screen.home.HomeScreen;
-import org.openjfx.hellofx.util.Configs;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,7 +52,7 @@ public class DockDetailsScreen extends ScreensStateHandler implements Initializa
         home_btn.setOnMouseClicked(event -> {
             HomeScreen home;
             try {
-                home = new HomeScreen(this.stage, Configs.HOME_PATH);
+                home = new HomeScreen(this.stage, Screens.HOME_PATH);
                 home.show();
 
             } catch (IOException e) {
@@ -63,7 +63,7 @@ public class DockDetailsScreen extends ScreensStateHandler implements Initializa
         rent_btn.setOnMouseClicked(event -> {
             BarCodeScreen barcode;
             try {
-                barcode = new BarCodeScreen(this.stage, Configs.FIRST_PATH);
+                barcode = new BarCodeScreen(this.stage, Screens.FIRST_PATH);
                 barcode.show();
 
             } catch (IOException e) {
