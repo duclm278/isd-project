@@ -4,21 +4,22 @@ import java.util.Objects;
 
 import org.openjfx.hellofx.model.account.Account;
 import org.openjfx.hellofx.model.account.AccountService;
+import org.openjfx.hellofx.model.account.IAccountService;
 import org.openjfx.hellofx.model.card.CreditCard;
 
-import com.mongodb.client.result.UpdateResult;
-
 public class AccountController {
-    AccountService accountService = new AccountService();
+    private IAccountService accountService;
 
-    private Account account;
+    public AccountController() {
+        accountService = new AccountService();
+    }
 
-    public void createNewAccount(Account account) {
+    public void save(Account account) {
         accountService.save(account);
     }
 
     public int makePayment(CreditCard creditCard, int amount) {
-        Account account = accountService.findAccountByCardCode(creditCard.getCardNumber());
+        Account account = accountService.findByCardCode(creditCard.getCardNumber());
         if (Objects.isNull(account))
             return 1;
 
@@ -27,32 +28,44 @@ public class AccountController {
             return 2;
 
         account.setBalance(currentBalance - amount);
-        UpdateResult status = accountService.replaceAccountBalanceByCardCode(account);
+        try {
+            Account result = accountService.findByCardCodeAndReplace(account);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+            return 3;
+        }
         return 0;
     }
 
     public int makeRefund(CreditCard creditCard, int amount) {
-
-        Account account = accountService.findAccountByCardCode(creditCard.getCardNumber());
+        Account account = accountService.findByCardCode(creditCard.getCardNumber());
         if (Objects.isNull(account))
             return 1;
 
         int currentBalance = account.getBalance();
         account.setBalance(currentBalance + amount);
-        UpdateResult status = accountService.replaceAccountBalanceByCardCode(account);
+        try {
+            Account result = accountService.findByCardCodeAndReplace(account);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+            return 3;
+        }
         return 0;
     }
 
     public int resetBalance(CreditCard creditCard) {
-
-        Account account = accountService.findAccountByCardCode(creditCard.getCardNumber());
+        Account account = accountService.findByCardCode(creditCard.getCardNumber());
         if (Objects.isNull(account))
             return 1;
 
         int currentBalance = account.getBalance();
         account.setBalance(1000000);
-        UpdateResult status = accountService.replaceAccountBalanceByCardCode(account);
+        try {
+            Account result = accountService.findByCardCodeAndReplace(account);
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+            return 3;
+        }
         return 0;
     }
-
 }

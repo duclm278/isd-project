@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.model.common;
+package org.openjfx.hellofx.model.base;
 
 import java.util.List;
 

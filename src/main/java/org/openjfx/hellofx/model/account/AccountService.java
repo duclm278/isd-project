@@ -1,21 +1,25 @@
 package org.openjfx.hellofx.model.account;
 
-import static com.mongodb.client.model.Filters.eq;
+import org.bson.types.ObjectId;
+import org.openjfx.hellofx.model.base.BaseService;
+import org.openjfx.hellofx.repository.account.AccountRepository;
+import org.openjfx.hellofx.repository.account.IAccountRepository;
 
-import org.openjfx.hellofx.model.common.OldService;
+public class AccountService extends BaseService<Account, ObjectId> implements IAccountService {
+    private IAccountRepository rentingRepository;
 
-import com.mongodb.client.result.UpdateResult;
-
-public class AccountService extends OldService<Account> {
     public AccountService() {
-        super("accounts", Account.class);
+        super(new AccountRepository());
+        rentingRepository = (IAccountRepository) getRepository();
     }
 
-    public Account findAccountByCardCode(String cardCode) {
-        return getCollection().find(eq("cardCode", cardCode)).first();
+    @Override
+    public Account findByCardCode(String cardCode) {
+        return rentingRepository.findByCardCode(cardCode);
     }
 
-    public UpdateResult replaceAccountBalanceByCardCode(Account account) {
-        return getCollection().replaceOne(eq("cardCode", account.getCardCode()), account);
+    @Override
+    public Account findByCardCodeAndReplace(Account account) {
+        return rentingRepository.findByCardCodeAndReplace(account);
     }
 }

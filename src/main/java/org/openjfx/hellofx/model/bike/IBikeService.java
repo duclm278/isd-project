@@ -1,7 +1,7 @@
 package org.openjfx.hellofx.model.bike;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.common.IBaseService;
+import org.openjfx.hellofx.model.base.IBaseService;
 
 public interface IBikeService extends IBaseService<Bike, ObjectId> {
     // Specify extra specifications if needed

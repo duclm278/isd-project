@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.model.base.BaseService;
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.bike.BikeService;
 import org.openjfx.hellofx.model.bike.IBikeService;
-import org.openjfx.hellofx.model.common.BaseService;
 import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.model.dock.DockService;
 import org.openjfx.hellofx.model.dock.IDockService;
@@ -60,7 +60,7 @@ public class DockingService extends BaseService<Docking, ObjectId> implements ID
     @Override
     public Docking findByBikeId(ObjectId bikeId) {
         List<Docking> dockings = dockingRepository.findByField("bikeId", ObjectId.class, bikeId);
-        return dockings.size() > 0 ? dockings.get(0) : null;
+        return dockings.isEmpty() ? null : dockings.get(0);
     }
 
     @Override

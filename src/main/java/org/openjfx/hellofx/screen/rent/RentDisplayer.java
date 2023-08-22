@@ -19,12 +19,16 @@ public class RentDisplayer {
         deposit_amount.setText(Integer.toString(bike.depositAmount()) + "đ");
     }
 
-    public void displayBikeDetails(Bike bike_details, ListView<String> bike_info) {
-        int battery = bike_details.battery.orElse(null);
-        String batteryString = Objects.isNull(battery) ? "No battery" : battery + "%";
+    public void displayBikeDetails(Bike bike, ListView<String> bike_info) {
+        int battery;
+        try {
+            battery = bike.getBattery().get();
+        } catch (Exception e) {
+            battery = -1;
+        }
 
-        bike_info.getItems().addAll("Barcode: " + bike_details.barcode, "Battery: " + batteryString,
-                "Type: " + bike_details.type);
+        String batteryString = battery == -1 ? "No battery" : battery + "%";
+        bike_info.getItems().addAll("Barcode: " + bike.getBarcode(), "Battery: " + batteryString,
+                "Type: " + bike.getType());
     }
-
 }

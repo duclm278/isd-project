@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Bike {
     private ObjectId id;
-    public String barcode;
-    public String type;
-    public Optional<Integer> battery;
+    private String barcode;
+    private String type;
+    private Optional<Integer> battery;
     private Optional<Integer> timeLeft;
-    public int value;
+    private int value;
     private Optional<Double> lat;
     private Optional<Double> lon;
 }

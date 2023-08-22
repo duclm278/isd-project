@@ -31,7 +31,7 @@ public class AccountControllerTest {
                 accountService.find().forEach(dock -> x.getAndIncrement());
                 System.out.println("Before add: " + x);
 
-                accountController.createNewAccount(newAccount);
+                accountController.save(newAccount);
                 accountService.find().forEach(dock -> y.getAndIncrement());
                 System.out.println("After add: " + y);
 
@@ -52,14 +52,14 @@ public class AccountControllerTest {
                                 "Dat",
                                 "123",
                                 "28/12");
-                Account account = accountService.findAccountByCardCode(creditCard.getCardNumber());
+                Account account = accountService.findByCardCode(creditCard.getCardNumber());
                 int balance_before = account.getBalance();
                 System.out.println(accountController.makePayment(creditCard, amount));
 
-                account = accountService.findAccountByCardCode(creditCard.getCardNumber());
+                account = accountService.findByCardCode(creditCard.getCardNumber());
                 int balance_after_pay = account.getBalance();
                 System.out.println(accountController.makeRefund(creditCard, amount));
-                account = accountService.findAccountByCardCode(creditCard.getCardNumber());
+                account = accountService.findByCardCode(creditCard.getCardNumber());
                 int balance_after_refund = account.getBalance();
 
                 assertEquals(balance_before, balance_after_refund,

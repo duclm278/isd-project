@@ -1,9 +1,11 @@
 package org.openjfx.hellofx.model.transaction;
 
-import org.openjfx.hellofx.model.common.OldService;
+import org.bson.types.ObjectId;
+import org.openjfx.hellofx.model.base.BaseService;
+import org.openjfx.hellofx.repository.transaction.TransactionRepository;
 
-public class TransactionService extends OldService<Transaction> {
+public class TransactionService extends BaseService<Transaction, ObjectId> implements ITransactionService {
     public TransactionService() {
-        super("transactions", Transaction.class);
+        super(new TransactionRepository());
     }
 }

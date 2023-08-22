@@ -14,7 +14,6 @@ import org.openjfx.hellofx.model.policy.TwinBike;
 import org.openjfx.hellofx.model.policy.TypeOfBike;
 import org.openjfx.hellofx.model.timer.Time;
 import org.openjfx.hellofx.screen.ScreensStateHandler;
-import org.openjfx.hellofx.screen.payment.ReturnBikePaymentScreen;
 import org.openjfx.hellofx.screen.returnbike.ReturnScreen;
 
 import javafx.animation.KeyFrame;
@@ -66,7 +65,7 @@ public class WaitingRoomScreen extends ScreensStateHandler implements Initializa
         this.stage = stage;
         // StackPane subsceneRoot = (StackPane) subscence_test.getRoot();
         // subsceneRoot.getChildren().add(vbox_test);
-        String bike_type = (String) ((Bike) this.state.get("bike_details")).type;
+        String bike_type = (String) ((Bike) this.state.get("bike_details")).getType();
         if (bike_type == "N1") {
             this.bike = new StandardBike();
         }

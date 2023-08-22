@@ -58,13 +58,6 @@ public class MongoRepository<T, ID> implements IBaseRepository<T, ID> {
     }
 
     @Override
-    public List<T> findByField(String fieldName, Class<?> fieldType, Object fieldValue) {
-        List<T> objects = new ArrayList<>();
-        FindIterable<T> documents = collection.find(eq(fieldName, fieldType.cast(fieldValue)));
-        return documents.into(objects);
-    }
-
-    @Override
     public T findByIdAndReplace(ID id, T object) {
         if (id instanceof ObjectId) {
             FindOneAndReplaceOptions options = new FindOneAndReplaceOptions()
@@ -80,5 +73,34 @@ public class MongoRepository<T, ID> implements IBaseRepository<T, ID> {
             return collection.findOneAndDelete(eq("_id", id));
         }
         return null;
+    }
+
+    @Override
+    public List<T> findByField(String fieldName, Class<?> fieldType, Object fieldValue) {
+        List<T> objects = new ArrayList<>();
+        FindIterable<T> documents = collection.find(eq(fieldName, fieldType.cast(fieldValue)));
+        return documents.into(objects);
+    }
+
+    @Override
+    public List<T> findByFieldAndReplace(String fieldName, Class<?> fieldType, Object fieldValue, T object) {
+        List<T> objects = new ArrayList<>();
+        FindIterable<T> documents = collection.find(eq(fieldName, fieldType.cast(fieldValue)));
+        documents.forEach(doc -> {
+            collection.findOneAndReplace(eq(fieldName, fieldType.cast(fieldValue)), object);
+            objects.add(object);
+        });
+        return objects;
+    }
+
+    @Override
+    public List<T> findByFieldAndDelete(String fieldName, Class<?> fieldType, Object fieldValue) {
+        List<T> objects = new ArrayList<>();
+        FindIterable<T> documents = collection.find(eq(fieldName, fieldType.cast(fieldValue)));
+        documents.forEach(doc -> {
+            collection.findOneAndDelete(eq(fieldName, fieldType.cast(fieldValue)));
+            objects.add(doc);
+        });
+        return objects;
     }
 }

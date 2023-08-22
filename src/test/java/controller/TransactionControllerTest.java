@@ -24,10 +24,10 @@ public class TransactionControllerTest {
                                 "28/12",
                                 "rent a bike",
                                 100);
-                Account account = accountService.findAccountByCardCode(cardCode);
+                Account account = accountService.findByCardCode(cardCode);
                 int balance_before = account.getBalance();
                 System.out.println(transactionController.progressTransaction(transaction));
-                account = accountService.findAccountByCardCode(cardCode);
+                account = accountService.findByCardCode(cardCode);
                 int balance_after = account.getBalance();
                 assertEquals(balance_before, balance_after + transaction.getAmount(),
                                 "the difference between before and after refund balance should be equal the amount");
@@ -48,10 +48,10 @@ public class TransactionControllerTest {
                                 "28/12",
                                 "rent a bike",
                                 100);
-                Account account = accountService.findAccountByCardCode(cardCode);
+                Account account = accountService.findByCardCode(cardCode);
                 int balance_before = account.getBalance();
                 System.out.println(transactionController.progressTransaction(transaction));
-                account = accountService.findAccountByCardCode(cardCode);
+                account = accountService.findByCardCode(cardCode);
                 int balance_after = account.getBalance();
                 assertEquals(balance_before, balance_after - transaction.getAmount(),
                                 "the difference between before and after refund balance should be equal the amount");

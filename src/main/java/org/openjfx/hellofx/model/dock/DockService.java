@@ -3,7 +3,7 @@ package org.openjfx.hellofx.model.dock;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.common.BaseService;
+import org.openjfx.hellofx.model.base.BaseService;
 import org.openjfx.hellofx.repository.dock.DockRepository;
 import org.openjfx.hellofx.repository.dock.IDockRepository;
 

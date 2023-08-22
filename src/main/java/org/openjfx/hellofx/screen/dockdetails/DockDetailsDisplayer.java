@@ -35,8 +35,13 @@ public class DockDetailsDisplayer {
             String img_path = "org/openjfx/hellofx/image/bike1.png";
             Bike bike = list_bikes.get(i);
 
-            boolean haveBattery = bike.getBattery() == null;
-            int battery = haveBattery ? -1 : bike.getBattery().get();
+            int battery;
+            try {
+                battery = bike.getBattery().get();
+            } catch (Exception e) {
+                battery = -1;
+            }
+
             BikePane bikePane = new BikePane(bike.getType(), bike.getBarcode(), img_path, battery,
                     bike.getValue(),
                     this.stage);

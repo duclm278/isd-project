@@ -5,7 +5,11 @@ import org.openjfx.hellofx.model.transaction.Transaction;
 
 public class TransactionController {
     private Transaction transaction;
-    private AccountController accountController = new AccountController();
+    private AccountController accountController;
+
+    public TransactionController() {
+        accountController = new AccountController();
+    }
 
     public int progressTransaction(Transaction transaction) {
         int result = 0;

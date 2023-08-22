@@ -1,11 +1,12 @@
 package org.openjfx.hellofx.controller;
 
 import org.bson.types.ObjectId;
+import org.openjfx.hellofx.model.renting.IRentingService;
 import org.openjfx.hellofx.model.renting.Renting;
 import org.openjfx.hellofx.model.renting.RentingService;
 
 public class RentingController {
-    private RentingService rentingService;
+    private IRentingService rentingService;
 
     public RentingController() {
         rentingService = new RentingService();
@@ -23,16 +24,8 @@ public class RentingController {
         return rentingService.findUnfinishedByBikeId(bikeId);
     }
 
-    public Renting findUnfinishedByBikeId(String bikeId) {
-        return findUnfinishedByBikeId(new ObjectId(bikeId));
-    }
-
     public Renting findByBikeBarcode(String barcode) {
         return rentingService.findByBikeBarcode(barcode);
-    }
-
-    public Renting rentBike(String bikeId) {
-        return rentBike(new ObjectId(bikeId));
     }
 
     public Renting returnBike(ObjectId bikeId, ObjectId dockId) {
@@ -41,9 +34,5 @@ public class RentingController {
             throw new RuntimeException("Failed to return bike");
         }
         return result;
-    }
-
-    public Renting returnBike(String bikeId, String dockId) {
-        return returnBike(new ObjectId(bikeId), new ObjectId(dockId));
     }
 }

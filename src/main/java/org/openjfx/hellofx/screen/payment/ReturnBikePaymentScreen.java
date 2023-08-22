@@ -2,6 +2,7 @@ package org.openjfx.hellofx.screen.payment;
 
 import javafx.stage.Stage;
 
+import org.bson.types.ObjectId;
 import org.openjfx.hellofx.config.Screens;
 import org.openjfx.hellofx.controller.RentingController;
 import org.openjfx.hellofx.model.bike.Bike;
@@ -58,7 +59,7 @@ public class ReturnBikePaymentScreen extends ResultScreen {
             Bike rentedBike = (Bike) WaitingRoomScreen.state.get("bike_details");
             String dockId = (String) ReturnScreen.state.get("Dock id");
             System.out.println("Dock id: " + dockId + " Bike id: " + rentedBike.getId().toString());
-            new RentingController().returnBike(rentedBike.getId().toString(), dockId);
+            new RentingController().returnBike(rentedBike.getId(), new ObjectId(dockId));
 
             // TODO: Remove all state belong to previous transaction
         } else if (statusTransactionCode == 1) {

@@ -9,9 +9,13 @@ public interface IBaseRepository<T, ID> {
 
     public T findById(ID id);
 
-    public List<T> findByField(String fieldName, Class<?> fieldType, Object fieldValue);
-
     public T findByIdAndReplace(ID id, T object);
 
     public T findByIdAndDelete(ID id);
+
+    public List<T> findByField(String fieldName, Class<?> fieldType, Object fieldValue);
+
+    public List<T> findByFieldAndReplace(String fieldName, Class<?> fieldType, Object fieldValue, T object);
+
+    public List<T> findByFieldAndDelete(String fieldName, Class<?> fieldType, Object fieldValue);
 }

@@ -85,7 +85,7 @@ public class RentScreen extends ScreensStateHandler implements Initializable {
     }
 
     public void getBikeType(Bike bike_details) {
-        String type = bike_details.type;
+        String type = bike_details.getType();
         if (type.equals("N1")) {
             this.bike = new StandardBike();
         }
