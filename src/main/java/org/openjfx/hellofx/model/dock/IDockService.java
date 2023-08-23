@@ -3,9 +3,9 @@ package org.openjfx.hellofx.model.dock;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.base.IBaseService;
+import org.openjfx.hellofx.model.common.ISimpleService;
 
-public interface IDockService extends IBaseService<Dock, ObjectId> {
+public interface IDockService extends ISimpleService<Dock, ObjectId> {
     // Specify extra specifications if needed
     public List<Dock> findByNameOrAddress(String query);
 

@@ -3,11 +3,11 @@ package org.openjfx.hellofx.model.dock;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.base.BaseService;
+import org.openjfx.hellofx.model.common.SimpleService;
 import org.openjfx.hellofx.repository.dock.DockRepository;
 import org.openjfx.hellofx.repository.dock.IDockRepository;
 
-public class DockService extends BaseService<Dock, ObjectId> implements IDockService {
+public class DockService extends SimpleService<Dock, ObjectId> implements IDockService {
     private IDockRepository dockRepository;
 
     public DockService() {

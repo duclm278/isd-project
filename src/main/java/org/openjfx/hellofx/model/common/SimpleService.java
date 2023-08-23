@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.model.base;
+package org.openjfx.hellofx.model.common;
 
 import java.util.List;
 
@@ -7,10 +7,10 @@ import org.openjfx.hellofx.repository.base.IBaseRepository;
 import lombok.Getter;
 
 @Getter
-public class BaseService<T, ID> {
+public class SimpleService<T, ID> {
     private IBaseRepository<T, ID> repository;
 
-    public BaseService(IBaseRepository<T, ID> repository) {
+    public SimpleService(IBaseRepository<T, ID> repository) {
         this.repository = repository;
     }
 

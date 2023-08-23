@@ -1,8 +1,8 @@
-package org.openjfx.hellofx.model.base;
+package org.openjfx.hellofx.model.common;
 
 import java.util.List;
 
-public interface IBaseService<T, ID> {
+public interface ISimpleService<T, ID> {
     public T save(T object);
 
     public List<T> find();

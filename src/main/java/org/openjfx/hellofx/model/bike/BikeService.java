@@ -3,11 +3,11 @@ package org.openjfx.hellofx.model.bike;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.base.BaseService;
+import org.openjfx.hellofx.model.common.SimpleService;
 import org.openjfx.hellofx.repository.bike.BikeRepository;
 import org.openjfx.hellofx.repository.bike.IBikeRepository;
 
-public class BikeService extends BaseService<Bike, ObjectId> implements IBikeService {
+public class BikeService extends SimpleService<Bike, ObjectId> implements IBikeService {
     private IBikeRepository bikeRepository;
 
     public BikeService() {

@@ -3,10 +3,10 @@ package org.openjfx.hellofx.model.docking;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.base.IBaseService;
 import org.openjfx.hellofx.model.bike.Bike;
+import org.openjfx.hellofx.model.common.ISimpleService;
 
-public interface IDockingService extends IBaseService<Docking, ObjectId> {
+public interface IDockingService extends ISimpleService<Docking, ObjectId> {
     // Specify extra specifications if needed
     public Docking findByBikeId(ObjectId bikeId);
 

@@ -1,4 +1,4 @@
-package org.openjfx.hellofx.model.base;
+package org.openjfx.hellofx.model.common;
 
 import static com.mongodb.client.model.Filters.eq;
 

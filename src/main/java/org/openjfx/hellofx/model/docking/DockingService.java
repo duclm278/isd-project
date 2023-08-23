@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.base.BaseService;
 import org.openjfx.hellofx.model.bike.Bike;
 import org.openjfx.hellofx.model.bike.BikeService;
 import org.openjfx.hellofx.model.bike.IBikeService;
+import org.openjfx.hellofx.model.common.SimpleService;
 import org.openjfx.hellofx.model.dock.Dock;
 import org.openjfx.hellofx.model.dock.DockService;
 import org.openjfx.hellofx.model.dock.IDockService;
 import org.openjfx.hellofx.repository.docking.DockingRepository;
 import org.openjfx.hellofx.repository.docking.IDockingRepository;
 
-public class DockingService extends BaseService<Docking, ObjectId> implements IDockingService {
+public class DockingService extends SimpleService<Docking, ObjectId> implements IDockingService {
     private IBikeService bikeService;
     private IDockService dockService;
     private IDockingRepository dockingRepository;

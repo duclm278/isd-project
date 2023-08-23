@@ -3,14 +3,14 @@ package org.openjfx.hellofx.model.renting;
 import java.time.LocalDateTime;
 
 import org.bson.types.ObjectId;
-import org.openjfx.hellofx.model.base.BaseService;
+import org.openjfx.hellofx.model.common.SimpleService;
 import org.openjfx.hellofx.model.docking.Docking;
 import org.openjfx.hellofx.model.docking.DockingService;
 import org.openjfx.hellofx.model.docking.IDockingService;
 import org.openjfx.hellofx.repository.renting.IRentingRepository;
 import org.openjfx.hellofx.repository.renting.RentingRepository;
 
-public class RentingService extends BaseService<Renting, ObjectId> implements IRentingService {
+public class RentingService extends SimpleService<Renting, ObjectId> implements IRentingService {
     private IDockingService dockingService;
     private IRentingRepository rentingRepository;
 
